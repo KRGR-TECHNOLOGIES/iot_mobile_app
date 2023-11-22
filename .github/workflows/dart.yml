@@ -33,7 +33,7 @@ jobs:
       #  run: flutter test
 
       - name: Build APK
-        run: flutter build apk --debug --split-per-abi
+        run: flutter build apk --split-per-abi
 
       - name: Upload APK artifact
         uses: ncipollo/release-action@v1
