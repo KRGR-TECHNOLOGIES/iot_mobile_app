@@ -1,6 +1,5 @@
 // ignore_for_file: no_leading_underscores_for_local_identifiers, prefer_const_constructors
 
-import 'dart:ui';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/foundation.dart';
@@ -12,7 +11,6 @@ import 'package:iot_mobile_app/pages/Home_page.dart';
 import 'package:iot_mobile_app/pages/admin_landing_pages/landing.dart';
 import 'package:iot_mobile_app/pages/landing_page.dart';
 import 'package:iot_mobile_app/pages/settings/settings.dart';
-
 import 'Auth/splash.dart';
 import 'utils/dep.dart' as dep;
 import 'package:iot_mobile_app/Controller/lang_controller.dart';
@@ -20,7 +18,6 @@ import 'package:iot_mobile_app/pages/tabs/dash.dart';
 import 'package:iot_mobile_app/utils/app_constants.dart';
 import 'package:iot_mobile_app/utils/messages.dart';
 import 'package:provider/provider.dart';
-import 'package:flutter/widgets.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -62,7 +59,6 @@ class MyApp extends StatelessWidget {
   final Map<String, Map<String, String>> languages;
   final RouteObserver<PageRoute> routeObserver = RouteObserver<PageRoute>();
 
-  @override
   @override
   Widget build(BuildContext context) {
     // final routeObserver = RouteObserver();

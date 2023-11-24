@@ -4,7 +4,6 @@ import 'dart:convert';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:http/http.dart' as http;
-import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:iot_mobile_app/pages/admin_landing_pages/landing.dart';
@@ -310,7 +309,6 @@ class DeviceListState extends State<DeviceList> {
                     '/homepage',
                     arguments: device["deviceId"],
                   );
-
                   // Trigger refresh when returning from the homepage
                   Landingpage.landingpageKey.currentState?.refreshData();
                 },

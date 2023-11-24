@@ -148,42 +148,40 @@ class _ManagedeviceState extends State<Managedevice> {
               scrollDirection: Axis.vertical,
               child: Column(
                 children: [
-                  Container(
-                    child: Padding(
-                      padding: const EdgeInsets.all(10),
-                      child: Row(
-                        children: [
-                          Expanded(
-                            child: TextField(
-                              // controller: searchController,
-                              onChanged: (value) {
-                                filterDevices(value);
-                              },
-                              decoration: InputDecoration(
-                                contentPadding: EdgeInsets.symmetric(
-                                    horizontal: 20, vertical: 0),
-                                // hintText: 'Search for users',
-                                hintText: 'search_for_device'.tr,
-                                border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(30),
-                                  borderSide: BorderSide(),
-                                ),
-                                fillColor:
-                                    const Color.fromARGB(255, 248, 245, 245),
-                                filled: true,
-                                suffixIcon: const Icon(Icons.search),
+                  Padding(
+                    padding: const EdgeInsets.all(10),
+                    child: Row(
+                      children: [
+                        Expanded(
+                          child: TextField(
+                            // controller: searchController,
+                            onChanged: (value) {
+                              filterDevices(value);
+                            },
+                            decoration: InputDecoration(
+                              contentPadding: EdgeInsets.symmetric(
+                                  horizontal: 20, vertical: 0),
+                              // hintText: 'Search for users',
+                              hintText: 'search_for_device'.tr,
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(30),
+                                borderSide: BorderSide(),
                               ),
+                              fillColor:
+                                  const Color.fromARGB(255, 248, 245, 245),
+                              filled: true,
+                              suffixIcon: const Icon(Icons.search),
                             ),
                           ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
                   ),
                   Column(
                     children: [
-                      Container(
-                        height: 560,
-                        // height: MediaQuery.of(context).size.width * 0.9,
+                      SizedBox(
+                        // height: 560,
+                        height: MediaQuery.of(context).size.width * 1.53,
                         // color: Colors.black,
                         child: ListView(
                           children: filteredDeviceList.map((device) {

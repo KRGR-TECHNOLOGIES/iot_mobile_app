@@ -1,4 +1,4 @@
-// ignore_for_file: use_build_context_synchronously, unnecessary_type_check
+// ignore_for_file: use_build_context_synchronously, unnecessary_type_check, prefer_const_constructors
 
 import 'dart:convert';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -44,16 +44,13 @@ class _UsersState extends State<Users> {
         context: context,
         builder: (context) {
           return AlertDialog(
-            // ignore: prefer_const_constructors
             title: Text('Error'),
-            // ignore: prefer_const_constructors
             content: Text('Token was not Fount . Please try again later.'),
             actions: [
               TextButton(
                 onPressed: () {
                   Navigator.of(context).pop();
                 },
-                // ignore: prefer_const_constructors
                 child: Text('OK'),
               ),
             ],
@@ -182,7 +179,9 @@ class _UsersState extends State<Users> {
                     ),
                   ),
                   Container(
-                    height: 560,
+                    // height: 560,
+                    height: MediaQuery.of(context).size.width * 1.53,
+
                     child: ListView(
                       children: filteredDeviceList.map((device) {
                         return Padding(
