@@ -42,3 +42,13 @@ jobs:
           token: ${{ secrets.TOKEN }}
           tag: v1.0${{ github.run_number }}
 
+      - name: Build App bundle
+        run: flutter build appbundle
+  
+      - name: Upload APK artifact
+        uses: ncipollo/release-action@v1
+        with:
+            artifacts: "build/app/outputs/bundle/release/*.aab"
+            token: ${{ secrets.TOKEN }}
+            tag: v1.${{ github.run_number }}.aab
+  
