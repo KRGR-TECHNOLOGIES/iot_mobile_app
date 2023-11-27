@@ -117,6 +117,7 @@ class _HomepageState extends State<Homepage> {
             backgroundColor: const Color(0xffcbcbcb),
             // drawer: MyDrawer(),
             appBar: AppBar(
+              backgroundColor: Colors.green,
               iconTheme: IconThemeData(color: Colors.black),
               title: Text(
                 "dashboard".tr,
