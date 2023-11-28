@@ -20,15 +20,15 @@ class MyDrawer extends StatefulWidget {
 class _MyDrawerState extends State<MyDrawer> {
   List<Widget> buttons = [];
 
-  Future<List<String>>? deviceIds;
+  Future<List<Map<String, dynamic>>>?  devices;
 
   @override
   void initState() {
     super.initState();
-    deviceIds = fetchDeviceIds();
+    devices = fetchDeviceIds();
   }
 
-  Future<List<String>> fetchDeviceIds() async {
+  Future<List<Map<String, dynamic>>> fetchDeviceIds() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     String? jwtToken = prefs.getString('jwt_token');
 
@@ -36,44 +36,59 @@ class _MyDrawerState extends State<MyDrawer> {
       // Handle the case where the token is not found
       // return null;
     }
-    final response = await http.get(
-      Uri.https('console-api.theja.in', '/user/getInfo'),
-      headers: {
-        "Authorization": "Bearer $jwtToken",
-      },
-    );
 
-    if (response.statusCode == 200) {
-      final Map<String, dynamic> jsonResponse = json.decode(response.body);
-      final List<dynamic> deviceIdsJson = jsonResponse["deviceIds"];
+    try {
+      final response = await http.get(
+        Uri.https('console-api.theja.in', 'device/getAll'),
+        headers: {
+          "Authorization": "Bearer $jwtToken",
+        },
+      );
 
-      if (deviceIdsJson is List) {
-        final deviceIds = deviceIdsJson
-            .map((deviceIdJson) => deviceIdJson.toString())
-            .toList();
-        return deviceIds;
+      if (response.statusCode == 200) {
+        final List<dynamic> jsonResponse = json.decode(response.body);
+
+        if (jsonResponse is List) {
+          final devices = jsonResponse.map((device) {
+            return {
+              "deviceId": device["deviceId"].toString(),
+              "name": device["name"].toString(),
+              "powerStatusn": device["powerAvailable"],
+              "isDeviceSwitched": device["givenState"],
+              "motorbox": device["deviceState"],
+            };
+          }).toList();
+
+          return devices;
+        } else {
+          print('JSON response is not a List');
+          return <Map<String, dynamic>>[];
+        }
       } else {
-        return <String>[];
+        print('API Response (Error): ${response.body}');
+        throw Exception(
+            'Failed to load devices. Status code: ${response.statusCode}');
       }
-    } else {
-      print('API Response (Error): ${response.body}');
-      throw Exception('Failed to load device IDs');
+    } catch (e) {
+      print('Error fetching devices: $e');
+      return <Map<String, dynamic>>[];
     }
   }
 
+
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder<List<String>>(
-      future: deviceIds,
+    return FutureBuilder<List<Map<String, dynamic>>>(
+      future: devices,
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
           return Center(child: CircularProgressIndicator());
         } else if (snapshot.hasError) {
           return Center(child: Text('Error: ${snapshot.error}'));
         } else {
-          final deviceIdsList = snapshot.data;
+          final deviceList  = snapshot.data;
 
-          if (deviceIdsList == null || deviceIdsList.isEmpty) {
+          if (deviceList  == null || deviceList .isEmpty) {
             return Center(child: Text('No device IDs found.'));
           }
 
@@ -86,8 +101,10 @@ class _MyDrawerState extends State<MyDrawer> {
                 ),
                 ListView.builder(
                   shrinkWrap: true,
-                  itemCount: deviceIdsList.length,
+
+                  itemCount: deviceList.length,
                   itemBuilder: (context, index) {
+                    final device = deviceList[index];
                     return Center(
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
@@ -101,7 +118,7 @@ class _MyDrawerState extends State<MyDrawer> {
                             child: ElevatedButton(
                               onPressed: () {
                                 Navigator.pushNamed(context, '/homepage',
-                                    arguments: deviceIdsList[index]);
+                                    arguments: device["deviceId"]);
                                 // Navigator.of(context).push(
                                 //   MaterialPageRoute(
                                 //       builder: (context) =>
@@ -113,8 +130,9 @@ class _MyDrawerState extends State<MyDrawer> {
                               },
                               child: Row(
                                 children: [
+
                                   Text(
-                                    'device_no:1'.tr,
+                                    device["name"],
                                     style: TextStyle(
                                       color: const Color.fromARGB(
                                           255, 195, 51, 41),
@@ -123,20 +141,19 @@ class _MyDrawerState extends State<MyDrawer> {
                                               0.04,
                                     ),
                                   ),
-                                  Text(
-                                    deviceIdsList[index],
-                                    style: TextStyle(
-                                      color: const Color.fromARGB(
-                                          255, 195, 51, 41),
-                                      fontSize:
-                                          MediaQuery.of(context).size.width *
-                                              0.04,
-                                    ),
+                                  Spacer(),
+                                  Container(
+                                    height: 15,
+                                    width: 15,
+                                    decoration: BoxDecoration(color:  device["motorbox"]
+                                    ?  const Color.fromARGB(255, 253, 18, 1):Colors.green
+                                          ,borderRadius: BorderRadius.circular(20),),
                                   ),
                                 ],
                               ),
                               style: ElevatedButton.styleFrom(
-                                primary: Color.fromARGB(223, 240, 200, 200),
+                                primary:device["motorbox"]
+                                    ? Color.fromARGB(223, 240, 200, 200):Colors.lightGreen,
                                 fixedSize: Size(770, 60),
                                 side: BorderSide(
                                   color: Color.fromARGB(255, 218, 117, 110),
