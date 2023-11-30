@@ -21,28 +21,7 @@ class _PowerState extends State<Power> {
 
   _PowerState(this.powerLogs);
 
-// late Future<List<Photo>> futurePhotos;
-//   List<Photo> photos = [];
   bool isRefreshing = false;
-
-//  @override
-//   void initState() {
-//     super.initState();
-//     futurePhotos = fetchData();
-//   }
-
-//   Future<List<Photo>> fetchData() async {
-//     final response = await http.get(Uri.parse('https://jsonplaceholder.typicode.com/photos'));
-
-//     if (response.statusCode == 200) {
-//       final List<dynamic> jsonList = json.decode(response.body);
-//       return jsonList.map((json) => Photo.fromJson(json)).toList();
-
-//     } else {
-//       throw Exception('Failed to load data');
-//     }
-//   }
-
   void handleRefresh() {
     setState(() {
       isRefreshing = true;
@@ -82,7 +61,7 @@ class _PowerState extends State<Power> {
               child: Row(
                 children: [
                   SizedBox(
-                    width: MediaQuery.of(context).size.width * 0.3,
+                    width: MediaQuery.of(context).size.width * 0.42,
                   ),
                   Text(
                     'refresh_logs'.tr,

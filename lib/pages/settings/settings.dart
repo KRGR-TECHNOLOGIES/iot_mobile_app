@@ -363,7 +363,7 @@ class _SettingsState extends State<Settings> {
                         padding: const EdgeInsets.only(top: 20.0, bottom: 10),
                         child: Divider(
                           height: 2,
-                          color: const Color.fromARGB(255, 163, 56, 56),
+                          color: Colors.grey
                         ),
                       );
                       //     SizedBox(
@@ -461,20 +461,18 @@ class _SettingsState extends State<Settings> {
                     title: Text("notifications".tr,
                         style: TextStyle(
                             fontWeight: FontWeight.w400, fontSize: 20)),
-                    trailing: InkWell(
+                    trailing: Icon(
+                      notificationsEnabled
+                          ? Icons.notifications
+                          : Icons.notifications_off,color: Colors.black,),
                       onTap: () {
                         setState(() {
                           notificationsEnabled = !notificationsEnabled;
                         });
                         toggleNotifications(notificationsEnabled);
                       },
-                      child: Icon(
-                        notificationsEnabled
-                            ? Icons.notifications
-                            : Icons.notifications_off,
-                        color: Colors.black,
-                      ),
-                    ),
+
+
                   ),
                   SizedBox(
                     height: 10,

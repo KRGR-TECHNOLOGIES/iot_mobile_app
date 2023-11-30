@@ -43,6 +43,7 @@ class _AdminlandingpageState extends State<Adminlandingpage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        elevation: 0,
         title: Text(
           'manage_users'.tr,
           style: TextStyle(

@@ -303,6 +303,7 @@ class _MapDevicesState extends State<MapDevices> {
       backgroundColor: const Color(0xffcbcbcb),
 
       appBar: AppBar(
+        elevation: 0,
         iconTheme: IconThemeData(color: Colors.black),
         backgroundColor: Colors.green,
         title: Text(

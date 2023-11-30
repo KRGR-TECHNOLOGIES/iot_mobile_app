@@ -159,6 +159,8 @@ class _AdduserrState extends State<Adduser>
           // ),
 
           BottomAppBar(
+            color: Colors.transparent,
+        elevation: 0,
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Row(

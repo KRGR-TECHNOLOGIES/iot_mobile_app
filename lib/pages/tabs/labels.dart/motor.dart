@@ -53,7 +53,8 @@ class _MotorState extends State<Motor> {
             child: Row(
               children: [
                 SizedBox(
-                  width: 80,
+                  width: MediaQuery.of(context).size.width * 0.42,
+
                 ),
                 Text(
                   'refresh_logs'.tr,

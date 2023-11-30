@@ -108,6 +108,7 @@ class _ManagedeviceState extends State<Managedevice> {
     return Scaffold(
       backgroundColor: const Color(0xffcbcbcb),
       appBar: AppBar(
+        elevation: 0,
         iconTheme: IconThemeData(color: Colors.black),
         title: Text(
           "manage_devices".tr,

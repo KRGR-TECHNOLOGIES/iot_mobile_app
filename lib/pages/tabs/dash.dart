@@ -136,7 +136,18 @@ class _DashState extends State<Dash> {
       throw Exception('Failed to load device status');
     }
   }
-
+  bool isRefreshing = false;
+  void handleRefresh() {
+    setState(() {
+      isRefreshing = true;
+      fetchDeviceStatus();
+      Future.delayed(Duration(seconds: 2), () {
+        setState(() {
+          isRefreshing = false;
+        });
+      });
+    });
+  }
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<List<String>>(
@@ -182,13 +193,16 @@ class _DashState extends State<Dash> {
                                 fontWeight: FontWeight.bold),
                           ),
                           SizedBox(
-                            width: screenSize.width * 0.3,
+                            width: screenSize.width * 0.38,
                           ),
+                          isRefreshing
+                              ? CircularProgressIndicator()
+                              :
                           SizedBox(
                             width: 30,
                             child: GestureDetector(
-                                onTap:
-                                    () {}, // Call handleRefresh when the icon is tapped
+                                onTap: handleRefresh,
+                                    // Call handleRefresh when the icon is tapped
                                 child: Image.asset(
                                   "assets/refresh.png",
                                 )),

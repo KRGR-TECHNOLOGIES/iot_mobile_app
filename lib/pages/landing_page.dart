@@ -162,6 +162,7 @@ class _LandingpageState extends State<Landingpage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+
         iconTheme: IconThemeData(color: Colors.black),
         automaticallyImplyLeading: false,
         backgroundColor: Colors.white,

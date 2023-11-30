@@ -269,8 +269,9 @@ class _LimitsState extends State<Limits> {
         ),
       ),
       appBar: AppBar(
+        elevation: 0,
         iconTheme: IconThemeData(color: Colors.black),
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.transparent,
         title: Text(
           "set_limits".tr,
           style: TextStyle(

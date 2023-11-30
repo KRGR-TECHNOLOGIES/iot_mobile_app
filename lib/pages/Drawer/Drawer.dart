@@ -20,7 +20,7 @@ class MyDrawer extends StatefulWidget {
 class _MyDrawerState extends State<MyDrawer> {
   List<Widget> buttons = [];
 
-  Future<List<Map<String, dynamic>>>?  devices;
+  Future<List<Map<String, dynamic>>>? devices;
 
   @override
   void initState() {
@@ -75,7 +75,6 @@ class _MyDrawerState extends State<MyDrawer> {
     }
   }
 
-
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<List<Map<String, dynamic>>>(
@@ -86,9 +85,9 @@ class _MyDrawerState extends State<MyDrawer> {
         } else if (snapshot.hasError) {
           return Center(child: Text('Error: ${snapshot.error}'));
         } else {
-          final deviceList  = snapshot.data;
+          final deviceList = snapshot.data;
 
-          if (deviceList  == null || deviceList .isEmpty) {
+          if (deviceList == null || deviceList.isEmpty) {
             return Center(child: Text('No device IDs found.'));
           }
 
@@ -101,7 +100,6 @@ class _MyDrawerState extends State<MyDrawer> {
                 ),
                 ListView.builder(
                   shrinkWrap: true,
-
                   itemCount: deviceList.length,
                   itemBuilder: (context, index) {
                     final device = deviceList[index];
@@ -130,12 +128,14 @@ class _MyDrawerState extends State<MyDrawer> {
                               },
                               child: Row(
                                 children: [
-
                                   Text(
                                     device["name"],
                                     style: TextStyle(
-                                      color: const Color.fromARGB(
-                                          255, 195, 51, 41),
+                                      color: device["motorbox"]
+                                          ? const Color.fromARGB(
+                                              255, 22, 135, 26)
+                                          : const Color.fromARGB(
+                                              255, 195, 51, 41),
                                       fontSize:
                                           MediaQuery.of(context).size.width *
                                               0.04,
@@ -143,20 +143,45 @@ class _MyDrawerState extends State<MyDrawer> {
                                   ),
                                   Spacer(),
                                   Container(
-                                    height: 15,
-                                    width: 15,
-                                    decoration: BoxDecoration(color:  device["motorbox"]
-                                    ?  const Color.fromARGB(255, 253, 18, 1):Colors.green
-                                          ,borderRadius: BorderRadius.circular(20),),
+                                    height: 20,
+                                    width: 20,
+                                    decoration: BoxDecoration(
+                                      color: device["motorbox"]
+                                          ? Color.fromARGB(255, 121, 209, 124)
+                                          : Color.fromARGB(255, 233, 133, 126),
+                                      borderRadius: BorderRadius.circular(20),
+                                    ),
+                                    child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        Container(
+                                          height: 10,
+                                          width: 10,
+                                          decoration: BoxDecoration(
+                                            color: device["motorbox"]
+                                                ? Color.fromARGB(
+                                                    255, 26, 169, 31)
+                                                : Color.fromARGB(
+                                                    255, 238, 69, 57),
+                                            borderRadius:
+                                                BorderRadius.circular(20),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
                                   ),
                                 ],
                               ),
                               style: ElevatedButton.styleFrom(
-                                primary:device["motorbox"]
-                                    ? Color.fromARGB(223, 240, 200, 200):Colors.lightGreen,
+                                primary: device["motorbox"]
+                                    ? Color.fromARGB(255, 222, 242, 201)
+                                    : Color.fromARGB(223, 240, 200, 200),
                                 fixedSize: Size(770, 60),
                                 side: BorderSide(
-                                  color: Color.fromARGB(255, 218, 117, 110),
+                                  color: device["motorbox"]
+                                      ? Color.fromARGB(255, 22, 135, 26)
+                                      : Color.fromARGB(255, 218, 117, 110),
                                   width: 2,
                                   style: BorderStyle.solid,
                                 ),
