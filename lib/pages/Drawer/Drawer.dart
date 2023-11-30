@@ -91,113 +91,113 @@ class _MyDrawerState extends State<MyDrawer> {
             return Center(child: Text('No device IDs found.'));
           }
 
-          return Container(
-            child: Center(
-              child: ListView(children: [
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Image.asset("assets/logo.png"),
-                ),
-                ListView.builder(
-                  shrinkWrap: true,
-                  itemCount: deviceList.length,
-                  itemBuilder: (context, index) {
-                    final device = deviceList[index];
-                    return Center(
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          SizedBox(
-                            height: 5,
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(
-                                left: 15, right: 5, top: 10),
-                            child: ElevatedButton(
-                              onPressed: () {
-                                Navigator.pushNamed(context, '/homepage',
-                                    arguments: device["deviceId"]);
-                                // Navigator.of(context).push(
-                                //   MaterialPageRoute(
-                                //       builder: (context) =>
-                                //           Homepage(deviceIdsList[index])),
-                                // );
-                                //
-                                // Handle button press for each device
-                                // You can navigate to a specific page or perform other actions here
-                              },
-                              child: Row(
-                                children: [
-                                  Text(
-                                    device["name"],
-                                    style: TextStyle(
-                                      color: device["motorbox"]
-                                          ? const Color.fromARGB(
-                                              255, 22, 135, 26)
-                                          : const Color.fromARGB(
-                                              255, 195, 51, 41),
-                                      fontSize:
-                                          MediaQuery.of(context).size.width *
-                                              0.04,
-                                    ),
+          return Center(
+            child: ListView(children: [
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Image.asset("assets/logo.png"),
+              ),
+              ListView.builder(
+                shrinkWrap: true,
+                itemCount: deviceList.length,
+                itemBuilder: (context, index) {
+                  final device = deviceList[index];
+                  return Center(
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        SizedBox(
+                          height: 5,
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(
+                              left: 15, right: 5, top: 10),
+                          child: ElevatedButton(
+                            onPressed: () {
+                              Navigator.pushNamed(context, '/homepage',
+                                  arguments: device["deviceId"]);
+                              // Navigator.of(context).push(
+                              //   MaterialPageRoute(
+                              //       builder: (context) =>
+                              //           Homepage(deviceIdsList[index])),
+                              // );
+                              //
+                              // Handle button press for each device
+                              // You can navigate to a specific page or perform other actions here
+                            },
+                            child: Row(
+                              children: [
+                                Text(
+                                  device["name"],
+                                  style: TextStyle(
+                                    color: device["motorbox"]
+                                        ? const Color.fromARGB(
+                                            255, 22, 135, 26)
+                                        : const Color.fromARGB(
+                                            255, 195, 51, 41),
+                                    fontSize:
+                                        MediaQuery.of(context).size.width *
+                                            0.04,
                                   ),
-                                  Spacer(),
-                                  Container(
-                                    height: 20,
-                                    width: 20,
-                                    decoration: BoxDecoration(
-                                      color: device["motorbox"]
-                                          ? Color.fromARGB(255, 121, 209, 124)
-                                          : Color.fromARGB(255, 233, 133, 126),
-                                      borderRadius: BorderRadius.circular(20),
-                                    ),
-                                    child: Column(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        Container(
-                                          height: 10,
-                                          width: 10,
-                                          decoration: BoxDecoration(
-                                            color: device["motorbox"]
-                                                ? Color.fromARGB(
-                                                    255, 26, 169, 31)
-                                                : Color.fromARGB(
-                                                    255, 238, 69, 57),
-                                            borderRadius:
-                                                BorderRadius.circular(20),
-                                          ),
+                                ),
+                                Spacer(),
+                                Container(
+                                  height: 20,
+                                  width: 20,
+                                  decoration: BoxDecoration(
+                                    color: device["motorbox"]
+                                        ? Color.fromARGB(255, 121, 209, 124)
+                                        : Color.fromARGB(255, 233, 133, 126),
+                                    borderRadius: BorderRadius.circular(20),
+                                  ),
+                                  child: Column(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.center,
+                                    children: [
+                                      Container(
+                                        height: 10,
+                                        width: 10,
+                                        decoration: BoxDecoration(
+                                          color: device["motorbox"]
+                                              ? Color.fromARGB(
+                                                  255, 26, 169, 31)
+                                              : Color.fromARGB(
+                                                  255, 238, 69, 57),
+                                          borderRadius:
+                                              BorderRadius.circular(20),
                                         ),
-                                      ],
-                                    ),
+                                      ),
+                                    ],
                                   ),
-                                ],
+                                ),
+                              ],
+                            ),
+                            style: ElevatedButton.styleFrom(
+                              primary: device["motorbox"]
+                                  ? Color.fromARGB(255, 222, 242, 201)
+                                  : Color.fromARGB(223, 240, 200, 200),
+                              fixedSize: Size( MediaQuery.of(context).size.width *
+                                  0.9,  MediaQuery.of(context).size.width *
+                                  0.14),
+                              side: BorderSide(
+                                color: device["motorbox"]
+                                    ? Color.fromARGB(255, 22, 135, 26)
+                                    : Color.fromARGB(255, 218, 117, 110),
+                                width: 2,
+                                style: BorderStyle.solid,
                               ),
-                              style: ElevatedButton.styleFrom(
-                                primary: device["motorbox"]
-                                    ? Color.fromARGB(255, 222, 242, 201)
-                                    : Color.fromARGB(223, 240, 200, 200),
-                                fixedSize: Size(770, 60),
-                                side: BorderSide(
-                                  color: device["motorbox"]
-                                      ? Color.fromARGB(255, 22, 135, 26)
-                                      : Color.fromARGB(255, 218, 117, 110),
-                                  width: 2,
-                                  style: BorderStyle.solid,
-                                ),
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(10),
-                                ),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10),
                               ),
                             ),
                           ),
-                        ],
-                      ),
-                    );
-                  },
-                ),
-              ]),
-            ),
+                        ),
+                      ],
+                    ),
+                  );
+                },
+              ),
+            ]),
           );
         }
       },
