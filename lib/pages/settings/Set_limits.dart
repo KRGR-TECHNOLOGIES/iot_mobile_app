@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use, avoid_print, use_build_context_synchronously, library_private_types_in_public_api, file_names
+
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -203,7 +205,7 @@ class _LimitsState extends State<Limits> {
       Navigator.of(context).push(
         MaterialPageRoute(
           builder: (context) =>
-              Settings(), // Replace with the correct settings page
+              const Settings(), // Replace with the correct settings page
         ),
       );
     } else {
@@ -270,21 +272,21 @@ class _LimitsState extends State<Limits> {
       ),
       appBar: AppBar(
         elevation: 0,
-        iconTheme: IconThemeData(color: Colors.black),
+        iconTheme: const IconThemeData(color: Colors.black),
         backgroundColor: Colors.transparent,
         title: Text(
           "set_limits".tr,
-          style: TextStyle(
+          style: const TextStyle(
               fontWeight: FontWeight.bold, color: Colors.black, fontSize: 25),
         ),
         actions: [
           Padding(
-            padding: EdgeInsets.only(right: 30),
+            padding: const EdgeInsets.only(right: 30),
             child: GestureDetector(
               onTap: () {
                 Navigator.of(context).push(
                   MaterialPageRoute(
-                    builder: (context) => Langscreen(),
+                    builder: (context) => const Langscreen(),
                   ),
                 );
               },
@@ -313,18 +315,18 @@ class _LimitsState extends State<Limits> {
                 onTap: () {
                   Navigator.of(context).push(
                     MaterialPageRoute(
-                      builder: (context) => SelectDevice(),
+                      builder: (context) => const SelectDevice(),
                     ),
                   );
                 },
                 decoration: InputDecoration(
                   contentPadding:
-                      EdgeInsets.symmetric(horizontal: 20, vertical: 0),
+                      const EdgeInsets.symmetric(horizontal: 20, vertical: 0),
                   hintText: 'Select Device'.tr,
                 ),
                 controller: TextEditingController(text: widget.selectedDevice),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               Text(
@@ -335,11 +337,11 @@ class _LimitsState extends State<Limits> {
                 controller: _minimumVoltageController,
                 decoration: InputDecoration(
                   contentPadding:
-                      EdgeInsets.symmetric(horizontal: 20, vertical: 0),
+                      const EdgeInsets.symmetric(horizontal: 20, vertical: 0),
                   hintText: 'enter_minimum_voltage'.tr,
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               Text(
@@ -350,11 +352,11 @@ class _LimitsState extends State<Limits> {
                 controller: _maximumVoltageController,
                 decoration: InputDecoration(
                   contentPadding:
-                      EdgeInsets.symmetric(horizontal: 20, vertical: 0),
+                      const EdgeInsets.symmetric(horizontal: 20, vertical: 0),
                   hintText: 'enter_maximum_voltage'.tr,
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               Text(
@@ -365,11 +367,11 @@ class _LimitsState extends State<Limits> {
                 controller: _minimumCurrentController,
                 decoration: InputDecoration(
                   contentPadding:
-                      EdgeInsets.symmetric(horizontal: 20, vertical: 0),
+                      const EdgeInsets.symmetric(horizontal: 20, vertical: 0),
                   hintText: 'enter_minimum_current'.tr,
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               Text(
@@ -380,7 +382,7 @@ class _LimitsState extends State<Limits> {
                 controller: _maximumCurrentController,
                 decoration: InputDecoration(
                   contentPadding:
-                      EdgeInsets.symmetric(horizontal: 20, vertical: 0),
+                      const EdgeInsets.symmetric(horizontal: 20, vertical: 0),
                   hintText: 'enter_maximum_current'.tr,
                 ),
               ),

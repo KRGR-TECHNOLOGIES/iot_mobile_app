@@ -1,4 +1,4 @@
-// ignore_for_file: unnecessary_type_check, prefer_const_constructors, sort_child_properties_last
+// ignore_for_file: unnecessary_type_check, prefer_const_constructors, sort_child_properties_last, use_build_context_synchronously, avoid_print
 
 import 'dart:convert';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -190,16 +190,20 @@ class _ManagedeviceState extends State<Managedevice> {
                               padding: const EdgeInsets.only(
                                   top: 10, left: 5, right: 5),
                               child: Container(
+                                height:
+                                    MediaQuery.of(context).size.height * 0.15,
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(13),
                                   color: Colors.white,
                                 ),
                                 child: Column(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Padding(
                                       padding: const EdgeInsets.only(
-                                          top: 10, left: 20),
+                                          top: 15, left: 20),
                                       child: Text(
                                         device["name"] ?? "",
                                         style: TextStyle(
@@ -226,13 +230,14 @@ class _ManagedeviceState extends State<Managedevice> {
                                       ),
                                     ),
                                     Padding(
-                                      padding:
-                                          const EdgeInsets.only(bottom: 10),
+                                      padding: const EdgeInsets.only(
+                                        bottom: 15,
+                                      ),
                                       child: Row(
                                         crossAxisAlignment:
                                             CrossAxisAlignment.center,
                                         mainAxisAlignment:
-                                            MainAxisAlignment.center,
+                                            MainAxisAlignment.spaceBetween,
                                         children: [
                                           GestureDetector(
                                             onTap: () {
@@ -249,10 +254,11 @@ class _ManagedeviceState extends State<Managedevice> {
                                               );
                                             },
                                             child: Container(
+                                              margin: EdgeInsets.only(left: 10),
                                               width: MediaQuery.of(context)
                                                       .size
                                                       .width *
-                                                  0.3,
+                                                  0.27,
                                               height: MediaQuery.of(context)
                                                       .size
                                                       .height *
@@ -262,9 +268,7 @@ class _ManagedeviceState extends State<Managedevice> {
                                                   borderRadius:
                                                       BorderRadius.circular(
                                                           10)),
-                                              child: Padding(
-                                                padding: const EdgeInsets.only(
-                                                    left: 23, top: 8),
+                                              child: Center(
                                                 child: Text(
                                                   'view'.tr,
                                                   style: TextStyle(
@@ -279,92 +283,77 @@ class _ManagedeviceState extends State<Managedevice> {
                                               ),
                                             ),
                                           ),
-                                          Padding(
-                                            padding:
-                                                const EdgeInsets.only(left: 10),
-                                            child: GestureDetector(
-                                              onTap: () {},
-                                              child: Container(
-                                                width: MediaQuery.of(context)
-                                                        .size
-                                                        .width *
-                                                    0.3,
-                                                height: MediaQuery.of(context)
-                                                        .size
-                                                        .height *
-                                                    0.05,
-                                                decoration: BoxDecoration(
-                                                    color: Colors.red,
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            10)),
-                                                child: Padding(
-                                                  padding:
-                                                      const EdgeInsets.only(
-                                                          left: 17, top: 8),
-                                                  child: Text(
-                                                    'delete'.tr,
-                                                    style: TextStyle(
-                                                      fontSize:
-                                                          MediaQuery.of(context)
-                                                                  .size
-                                                                  .width *
-                                                              0.05,
-                                                      fontWeight:
-                                                          FontWeight.bold,
-                                                    ),
+                                          GestureDetector(
+                                            onTap: () {},
+                                            child: Container(
+                                              width: MediaQuery.of(context)
+                                                      .size
+                                                      .width *
+                                                  0.27,
+                                              height: MediaQuery.of(context)
+                                                      .size
+                                                      .height *
+                                                  0.05,
+                                              decoration: BoxDecoration(
+                                                  color: Colors.red,
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          10)),
+                                              child: Center(
+                                                child: Text(
+                                                  'delete'.tr,
+                                                  style: TextStyle(
+                                                    fontSize:
+                                                        MediaQuery.of(context)
+                                                                .size
+                                                                .width *
+                                                            0.05,
+                                                    fontWeight: FontWeight.bold,
                                                   ),
                                                 ),
                                               ),
                                             ),
                                           ),
-                                          Padding(
-                                              padding: const EdgeInsets.only(
-                                                  left: 10),
-                                              child: GestureDetector(
-                                                onTap: () {},
-                                                child: Container(
-                                                  width: MediaQuery.of(context)
-                                                          .size
-                                                          .width *
-                                                      0.3,
-                                                  height: MediaQuery.of(context)
-                                                          .size
-                                                          .height *
-                                                      0.05,
-                                                  decoration: BoxDecoration(
-                                                      color: device["active"] ==
-                                                              "true"
-                                                          ? const Color
-                                                              .fromARGB(
-                                                              234, 42, 228, 138)
-                                                          : const Color
-                                                              .fromARGB(
-                                                              234, 239, 9, 9),
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              10)),
-                                                  child: Padding(
-                                                    padding:
-                                                        const EdgeInsets.all(
-                                                            8.0),
-                                                    child: Text(
-                                                      device["active"] == "true"
-                                                          ? 'deactivate'.tr
-                                                          : 'activate'.tr,
-                                                      style: TextStyle(
-                                                        fontSize: MediaQuery.of(
-                                                                    context)
+                                          GestureDetector(
+                                            onTap: () {},
+                                            child: Container(
+                                              margin:
+                                                  EdgeInsets.only(right: 10),
+                                              width: MediaQuery.of(context)
+                                                      .size
+                                                      .width *
+                                                  0.27,
+                                              height: MediaQuery.of(context)
+                                                      .size
+                                                      .height *
+                                                  0.05,
+                                              decoration: BoxDecoration(
+                                                  color: device["active"] ==
+                                                          "true"
+                                                      ? const Color.fromARGB(
+                                                          234, 42, 228, 138)
+                                                      : const Color.fromARGB(
+                                                          234, 239, 9, 9),
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          10)),
+                                              child: Center(
+                                                child: Text(
+                                                  device["active"] == "true"
+                                                      ? 'deactivate'.tr
+                                                      : 'activate'.tr,
+                                                  style: TextStyle(
+                                                    fontSize:
+                                                        MediaQuery.of(context)
                                                                 .size
                                                                 .width *
                                                             0.05,
-                                                        fontWeight:
-                                                            FontWeight.bold,
-                                                      ),
-                                                    ),
+                                                    fontWeight: FontWeight.bold,
                                                   ),
                                                 ),
-                                              )),
+                                              ),
+                                            ),
+                                          ),
                                         ],
                                       ),
                                     ),

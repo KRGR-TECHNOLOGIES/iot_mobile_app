@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, unused_local_variable
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, unused_local_variable, no_logic_in_create_state
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -10,7 +10,7 @@ import 'package:get/get.dart';
 class Power extends StatefulWidget {
   final Map<String, dynamic>? powerLogs;
 
-  Power(this.powerLogs);
+  const Power(this.powerLogs, {super.key});
 
   @override
   State<Power> createState() => _PowerState(powerLogs);
@@ -41,8 +41,7 @@ class _PowerState extends State<Power> {
   Widget build(BuildContext context) {
     final List<Map<String, dynamic>> logList =
         (powerLogs?['onOffLogDtos'] as List<dynamic>?)
-                ?.map((dynamic item) =>
-                    (item as Map<String, dynamic>) ?? <String, dynamic>{})
+                ?.map((dynamic item) => (item as Map<String, dynamic>))
                 .toList() ??
             [];
     final String powerValueForRollup = logList.isNotEmpty
@@ -72,7 +71,7 @@ class _PowerState extends State<Power> {
                   SizedBox(width: 5),
                   isRefreshing
                       ? CircularProgressIndicator()
-                      : Container(
+                      : SizedBox(
                           height: 25,
                           width: 25,
                           child: GestureDetector(

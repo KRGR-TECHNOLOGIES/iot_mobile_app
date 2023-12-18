@@ -1,4 +1,4 @@
-// ignore_for_file: non_constant_identifier_names, prefer_const_constructors
+// ignore_for_file: non_constant_identifier_names, prefer_const_constructors, avoid_print, library_private_types_in_public_api
 
 import 'dart:convert';
 import 'package:get/get.dart';

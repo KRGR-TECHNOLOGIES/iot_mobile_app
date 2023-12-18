@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, non_constant_identifier_names, prefer_const_constructors_in_immutables, unused_local_variable
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, non_constant_identifier_names, prefer_const_constructors_in_immutables, unused_local_variable, no_logic_in_create_state
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -6,7 +6,7 @@ import 'package:get/get.dart';
 class Motor extends StatefulWidget {
   final Map<String, dynamic>? motorLogs;
 
-  Motor(this.motorLogs);
+  Motor(this.motorLogs, {super.key});
 
   @override
   State<Motor> createState() => _MotorState(motorLogs);
@@ -34,8 +34,7 @@ class _MotorState extends State<Motor> {
   Widget build(BuildContext context) {
     final List<Map<String, dynamic>> logList =
         (motorLogs?['onOffLogDtos'] as List<dynamic>?)
-                ?.map((dynamic item) =>
-                    (item as Map<String, dynamic>) ?? <String, dynamic>{})
+                ?.map((dynamic item) => (item as Map<String, dynamic>))
                 .toList() ??
             [];
     final String powerValueForRollup = logList.isNotEmpty
@@ -54,7 +53,6 @@ class _MotorState extends State<Motor> {
               children: [
                 SizedBox(
                   width: MediaQuery.of(context).size.width * 0.42,
-
                 ),
                 Text(
                   'refresh_logs'.tr,
@@ -65,7 +63,7 @@ class _MotorState extends State<Motor> {
                 SizedBox(width: 5),
                 isRefreshing
                     ? CircularProgressIndicator()
-                    : Container(
+                    : SizedBox(
                         height: 25,
                         width: 25,
                         child: GestureDetector(

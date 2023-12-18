@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, avoid_print
 import 'package:http/http.dart' as http;
 
 import 'package:flutter/material.dart';
@@ -149,6 +149,7 @@ class _LimitsState extends State<Mapdevice> {
         ),
       ),
       appBar: AppBar(
+        elevation: 0,
         iconTheme: IconThemeData(color: Colors.black),
         backgroundColor: Colors.white,
         title: Text(

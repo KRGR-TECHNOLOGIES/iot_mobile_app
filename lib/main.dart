@@ -1,4 +1,4 @@
-// ignore_for_file: no_leading_underscores_for_local_identifiers, prefer_const_constructors
+// ignore_for_file: no_leading_underscores_for_local_identifiers, prefer_const_constructors, avoid_print, non_constant_identifier_names, use_key_in_widget_constructors, avoid_types_as_parameter_names
 
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';

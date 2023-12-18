@@ -1,19 +1,14 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, no_leading_underscores_for_local_identifiers
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, no_leading_underscores_for_local_identifiers, avoid_print, use_build_context_synchronously
 
 import 'dart:convert';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_styled_toast/flutter_styled_toast.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import 'package:iot_mobile_app/pages/admin_landing_pages/landing.dart';
-import 'package:iot_mobile_app/pages/lang_page.dart';
 import 'package:iot_mobile_app/providers/firebase_message.dart';
 import 'package:jwt_decoder/jwt_decoder.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:http/http.dart' as http;
-import 'package:firebase_messaging/firebase_messaging.dart';
 import '../../Auth/singin.dart';
 import 'Set_limits.dart';
 
@@ -312,7 +307,7 @@ class _SettingsState extends State<Settings> {
                                     child: Row(
                                       children: <Widget>[
                                         Text(
-                                          "  " + 'sub'.tr,
+                                          "  ${'sub'.tr}",
                                           style: TextStyle(
                                             fontSize: MediaQuery.of(context)
                                                     .size
@@ -361,10 +356,7 @@ class _SettingsState extends State<Settings> {
                           //     ),
                           Padding(
                         padding: const EdgeInsets.only(top: 20.0, bottom: 10),
-                        child: Divider(
-                          height: 2,
-                          color: Colors.grey
-                        ),
+                        child: Divider(height: 2, color: Colors.grey),
                       );
                       //     SizedBox(
                       //       height: 10,
@@ -464,15 +456,15 @@ class _SettingsState extends State<Settings> {
                     trailing: Icon(
                       notificationsEnabled
                           ? Icons.notifications
-                          : Icons.notifications_off,color: Colors.black,),
-                      onTap: () {
-                        setState(() {
-                          notificationsEnabled = !notificationsEnabled;
-                        });
-                        toggleNotifications(notificationsEnabled);
-                      },
-
-
+                          : Icons.notifications_off,
+                      color: Colors.black,
+                    ),
+                    onTap: () {
+                      setState(() {
+                        notificationsEnabled = !notificationsEnabled;
+                      });
+                      toggleNotifications(notificationsEnabled);
+                    },
                   ),
                   SizedBox(
                     height: 10,

@@ -8,8 +8,9 @@ class Langget extends StatelessWidget {
   final LangController langController;
   final int index;
 
-  Langget(
-      {required this.langController,
+  const Langget(
+      {super.key,
+      required this.langController,
       required this.languageModel,
       required this.index});
 
@@ -24,8 +25,8 @@ class Langget extends StatelessWidget {
         langController.setSelectIndex(index);
       },
       child: Container(
-        padding: EdgeInsets.all(10),
-        margin: EdgeInsets.all(5),
+        padding: const EdgeInsets.all(10),
+        margin: const EdgeInsets.all(5),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
           boxShadow: [BoxShadow(color: Colors.green[400]!, spreadRadius: 1)],
@@ -36,7 +37,7 @@ class Langget extends StatelessWidget {
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  SizedBox(height: 5),
+                  const SizedBox(height: 5),
                   Text(
                     languageModel.languageName,
                     style: TextStyle(
@@ -46,14 +47,15 @@ class Langget extends StatelessWidget {
               ),
             ),
             langController.selectIndex == index
-                ? Positioned(
+                ? const Positioned(
+                    right: 8, // Adjust the position of the check icon as needed
+                    top: 8,
                     child: Icon(Icons.check_circle,
                         color: Colors.white,
-                        size: 24), // Adjust the size as needed
-                    right: 8, // Adjust the position of the check icon as needed
-                    top: 8, // Adjust the position of the check icon as needed
+                        size:
+                            24), // Adjust the position of the check icon as needed
                   )
-                : SizedBox(), // An empty container when not selected
+                : const SizedBox(), // An empty container when not selected
           ],
         ),
       ),

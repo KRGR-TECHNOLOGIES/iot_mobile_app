@@ -1,8 +1,7 @@
-// ignore_for_file: prefer_const_constructors, use_build_context_synchronously, unnecessary_null_comparison, prefer_adjacent_string_concatenation
+// ignore_for_file: prefer_const_constructors, use_build_context_synchronously, unnecessary_null_comparison, prefer_adjacent_string_concatenation, avoid_print, library_private_types_in_public_api, avoid_function_literals_in_foreach_calls
 
 import 'dart:convert';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:floating_bottom_navigation_bar/floating_bottom_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';

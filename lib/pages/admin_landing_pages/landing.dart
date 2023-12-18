@@ -1,18 +1,15 @@
-import 'dart:convert';
-import 'package:http/http.dart' as http;
-import 'package:flutter/foundation.dart';
+// ignore_for_file: deprecated_member_use, use_build_context_synchronously
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:iot_mobile_app/Auth/singin.dart';
-import 'package:iot_mobile_app/animited_button.dart';
 // import 'package:iot_mobile_app/pages/Home_page.dart';
 import 'package:iot_mobile_app/pages/admin_landing_pages/manage_device.dart';
 import 'package:iot_mobile_app/pages/admin_landing_pages/map_devices.dart';
 import 'package:iot_mobile_app/pages/admin_landing_pages/manage_user.dart';
 import 'package:iot_mobile_app/pages/landing_page.dart';
 import 'package:iot_mobile_app/pages/lang_page.dart';
-import 'package:iot_mobile_app/pages/user_landing.dart';
 import 'package:iot_mobile_app/providers/firebase_message.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -35,7 +32,7 @@ class _AdminlandingpageState extends State<Adminlandingpage> {
 
     // Navigate back to the login page
     Navigator.of(context).push(
-      MaterialPageRoute(builder: (context) => SingIN()),
+      MaterialPageRoute(builder: (context) => const SingIN()),
     );
   }
 
@@ -55,12 +52,12 @@ class _AdminlandingpageState extends State<Adminlandingpage> {
         backgroundColor: Colors.green,
         actions: [
           Padding(
-            padding: EdgeInsets.only(right: 5),
+            padding: const EdgeInsets.only(right: 5),
             child: GestureDetector(
               onTap: () {
                 Navigator.of(context).push(
                   MaterialPageRoute(
-                    builder: (context) => Langscreen(),
+                    builder: (context) => const Langscreen(),
                   ),
                 );
               },
@@ -78,7 +75,7 @@ class _AdminlandingpageState extends State<Adminlandingpage> {
             ),
           ),
           Padding(
-            padding: EdgeInsets.only(right: 20, left: 10),
+            padding: const EdgeInsets.only(right: 20, left: 10),
             child: CircleAvatar(
               radius: 16,
               backgroundColor: Colors.green,
@@ -86,7 +83,7 @@ class _AdminlandingpageState extends State<Adminlandingpage> {
                   onPressed: () async {
                     logout();
                   },
-                  icon: Icon(
+                  icon: const Icon(
                     Icons.logout,
                     size: 30,
                     color: Colors.black,
@@ -107,18 +104,19 @@ class _AdminlandingpageState extends State<Adminlandingpage> {
                 Container(
                   width: MediaQuery.of(context).size.width * 0.95,
                   height: MediaQuery.of(context).size.width * 0.33,
-                  padding: EdgeInsets.all(10),
+                  padding: const EdgeInsets.all(10),
                   child: ElevatedButton(
                     onPressed: () {
                       Navigator.of(context).push(
                         MaterialPageRoute(
-                          builder: (context) => Users(),
+                          builder: (context) => const Users(),
                         ),
                       );
 
                       // Provide a valid function for the button
                     },
                     style: ElevatedButton.styleFrom(
+                      elevation: 0,
                       primary: Colors.grey,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(25),
@@ -138,18 +136,19 @@ class _AdminlandingpageState extends State<Adminlandingpage> {
                 Container(
                   width: MediaQuery.of(context).size.width * 0.95,
                   height: MediaQuery.of(context).size.width * 0.33,
-                  padding: EdgeInsets.all(10),
+                  padding: const EdgeInsets.all(10),
                   child: ElevatedButton(
                     onPressed: () {
                       Navigator.of(context).push(
                         MaterialPageRoute(
-                          builder: (context) => Managedevice(),
+                          builder: (context) => const Managedevice(),
                         ),
                       );
 
                       // Provide a valid function for the button
                     },
                     style: ElevatedButton.styleFrom(
+                      elevation: 0,
                       primary: Colors.grey,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(25),
@@ -169,18 +168,19 @@ class _AdminlandingpageState extends State<Adminlandingpage> {
                 Container(
                   width: MediaQuery.of(context).size.width * 0.95,
                   height: MediaQuery.of(context).size.width * 0.33,
-                  padding: EdgeInsets.all(10),
+                  padding: const EdgeInsets.all(10),
                   child: ElevatedButton(
                     onPressed: () {
                       Navigator.of(context).push(
                         MaterialPageRoute(
-                          builder: (context) => MapDevices(),
+                          builder: (context) => const MapDevices(),
                         ),
                       );
 
                       // Provide a valid function for the button
                     },
                     style: ElevatedButton.styleFrom(
+                      elevation: 0,
                       primary: Colors.grey,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(25),
@@ -201,14 +201,14 @@ class _AdminlandingpageState extends State<Adminlandingpage> {
                 Container(
                   width: MediaQuery.of(context).size.width * 0.95,
                   height: MediaQuery.of(context).size.width * 0.33,
-                  padding: EdgeInsets.all(10),
+                  padding: const EdgeInsets.all(10),
                   child: ElevatedButton(
                     onPressed: () {
                       Navigator.of(context).push(
                         MaterialPageRoute(
                             builder: (context) =>
                                 // Landingpage(id: ""),
-                                Landingpage(
+                                const Landingpage(
                                   id: '',
                                 )),
                       );
@@ -216,6 +216,7 @@ class _AdminlandingpageState extends State<Adminlandingpage> {
                       // Provide a valid function for the button
                     },
                     style: ElevatedButton.styleFrom(
+                      elevation: 0,
                       primary: Colors.grey,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(25),
@@ -229,8 +230,6 @@ class _AdminlandingpageState extends State<Adminlandingpage> {
                     ),
                   ),
                 ),
-
-
               ],
             ),
           ),

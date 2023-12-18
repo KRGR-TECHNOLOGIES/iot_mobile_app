@@ -1,4 +1,4 @@
-// ignore_for_file: unnecessary_type_check
+// ignore_for_file: unnecessary_type_check, avoid_print, file_names, no_logic_in_create_state
 
 import 'dart:convert';
 import 'package:http/http.dart' as http;
@@ -14,7 +14,7 @@ import 'labels.dart/power.dart';
 class Logs extends StatefulWidget {
   final String deviceId;
 
-  Logs(this.deviceId, {super.key});
+  const Logs(this.deviceId, {super.key});
 
   @override
   State<Logs> createState() => _LogsState(deviceId);
@@ -134,28 +134,28 @@ class _LogsState extends State<Logs> with SingleTickerProviderStateMixin {
         future: deviceIds,
         builder: (context, deviceIdsSnapshot) {
           if (deviceIdsSnapshot.connectionState == ConnectionState.waiting) {
-            return Center(child: CircularProgressIndicator());
+            return const Center(child: CircularProgressIndicator());
           } else if (deviceIdsSnapshot.hasError) {
             return Center(child: Text('Error: ${deviceIdsSnapshot.error}'));
           } else {
             final deviceIdsList = deviceIdsSnapshot.data;
 
             if (deviceIdsList == null || deviceIdsList.isEmpty) {
-              return Center(child: Text('No device IDs found.'));
+              return const Center(child: Text('No device IDs found.'));
             }
 
             return FutureBuilder<Map<String, dynamic>>(
                 future: fetchLogs(),
                 builder: (context, logsSnapshot) {
                   if (logsSnapshot.connectionState == ConnectionState.waiting) {
-                    return Center(child: CircularProgressIndicator());
+                    return const Center(child: CircularProgressIndicator());
                   } else if (logsSnapshot.hasError) {
                     return Center(child: Text('Error: ${logsSnapshot.error}'));
                   } else {
                     final logData = logsSnapshot.data;
 
                     if (logData == null) {
-                      return Center(child: Text('No logs found.'));
+                      return const Center(child: Text('No logs found.'));
                     }
 
                     final powerLogs = logData["powerLogsDto"];
@@ -163,7 +163,7 @@ class _LogsState extends State<Logs> with SingleTickerProviderStateMixin {
                     final loadLogs = logData["loadLogsDto"];
 
                     return Container(
-                        color: Color(0xffcbcbcb),
+                        color: const Color(0xffcbcbcb),
                         child: Column(
                           children: [
                             Padding(
@@ -179,7 +179,7 @@ class _LogsState extends State<Logs> with SingleTickerProviderStateMixin {
                                         fontWeight: FontWeight.bold),
                                   ),
                                   Text(
-                                    '${widget.deviceId}',
+                                    widget.deviceId,
                                     style: TextStyle(
                                         fontSize:
                                             MediaQuery.of(context).size.width *
@@ -232,20 +232,21 @@ class _LogsState extends State<Logs> with SingleTickerProviderStateMixin {
                               child: Container(
                                 width: MediaQuery.of(context).size.height,
                                 decoration: BoxDecoration(
-                                  color: Color.fromARGB(255, 180, 179, 179),
+                                  color:
+                                      const Color.fromARGB(255, 180, 179, 179),
                                   borderRadius: BorderRadius.circular(5),
                                 ),
                                 child: Column(
                                   children: [
                                     Padding(
-                                      padding: EdgeInsets.all(5),
+                                      padding: const EdgeInsets.all(5),
                                       child: TabBar(
                                         unselectedLabelColor: Colors.black,
                                         labelColor: Colors.white,
                                         indicatorColor: Colors.black38,
                                         indicator: BoxDecoration(
-                                          color:
-                                              Color.fromARGB(181, 51, 42, 55),
+                                          color: const Color.fromARGB(
+                                              181, 51, 42, 55),
                                           borderRadius:
                                               BorderRadius.circular(5),
                                         ),

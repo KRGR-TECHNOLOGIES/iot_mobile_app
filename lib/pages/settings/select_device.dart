@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, sort_child_properties_last, unnecessary_type_check
+// ignore_for_file: prefer_const_constructors, sort_child_properties_last, unnecessary_type_check, avoid_print, library_private_types_in_public_api
 
 import 'dart:convert';
 import 'package:flutter_svg/svg.dart';
@@ -52,7 +52,7 @@ class _SelectDeviceState extends State<SelectDevice> {
         final deviceIds = jsonResponse.map((device) {
           return device["deviceId"].toString();
         }).toList();
-        ;
+
         return deviceIds;
       } else {
         return <String>[];

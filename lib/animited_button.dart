@@ -1,4 +1,4 @@
-// ignore_for_file: constant_identifier_names, use_key_in_widget_constructors
+// ignore_for_file: constant_identifier_names, use_key_in_widget_constructors, void_checks, camel_case_types, no_leading_underscores_for_local_identifiers, library_private_types_in_public_api
 
 import 'dart:async';
 
@@ -12,7 +12,7 @@ class AnimatedButton extends StatefulWidget {
   final Duration animationDuration;
   final Function onTap;
 
-  AnimatedButton(
+  const AnimatedButton(
       {required this.initialText,
       required this.finalText,
       required this.iconData,
@@ -49,7 +49,7 @@ class _AnimatedButtonState extends State<AnimatedButton>
       } else if (_controllerValue > 0.8) {
         setState(() {
           _currentState = ButtonState.SHOW_TEXT_ICON;
-          _resetTimer = Timer(Duration(seconds: 2), () {
+          _resetTimer = Timer(const Duration(seconds: 2), () {
             setState(() {
               _currentState = ButtonState.SHOW_ONLY_TEXT;
             });

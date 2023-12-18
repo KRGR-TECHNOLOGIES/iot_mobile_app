@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, sort_child_properties_last, prefer_const_literals_to_create_immutables, no_leading_underscores_for_local_identifiers, unnecessary_type_check
+// ignore_for_file: prefer_const_constructors, sort_child_properties_last, prefer_const_literals_to_create_immutables, no_leading_underscores_for_local_identifiers, unnecessary_type_check, deprecated_member_use, avoid_print, unused_import, file_names
 
 import 'dart:convert';
 import 'package:get/get.dart';
@@ -131,8 +131,7 @@ class _MyDrawerState extends State<MyDrawer> {
                                   device["name"],
                                   style: TextStyle(
                                     color: device["motorbox"]
-                                        ? const Color.fromARGB(
-                                            255, 22, 135, 26)
+                                        ? const Color.fromARGB(255, 22, 135, 26)
                                         : const Color.fromARGB(
                                             255, 195, 51, 41),
                                     fontSize:
@@ -151,16 +150,14 @@ class _MyDrawerState extends State<MyDrawer> {
                                     borderRadius: BorderRadius.circular(20),
                                   ),
                                   child: Column(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.center,
+                                    mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       Container(
                                         height: 10,
                                         width: 10,
                                         decoration: BoxDecoration(
                                           color: device["motorbox"]
-                                              ? Color.fromARGB(
-                                                  255, 26, 169, 31)
+                                              ? Color.fromARGB(255, 26, 169, 31)
                                               : Color.fromARGB(
                                                   255, 238, 69, 57),
                                           borderRadius:
@@ -176,9 +173,9 @@ class _MyDrawerState extends State<MyDrawer> {
                               primary: device["motorbox"]
                                   ? Color.fromARGB(255, 222, 242, 201)
                                   : Color.fromARGB(223, 240, 200, 200),
-                              fixedSize: Size( MediaQuery.of(context).size.width *
-                                  0.9,  MediaQuery.of(context).size.width *
-                                  0.14),
+                              fixedSize: Size(
+                                  MediaQuery.of(context).size.width * 0.9,
+                                  MediaQuery.of(context).size.width * 0.14),
                               side: BorderSide(
                                 color: device["motorbox"]
                                     ? Color.fromARGB(255, 22, 135, 26)

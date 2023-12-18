@@ -1,4 +1,4 @@
-// ignore_for_file: non_constant_identifier_names, prefer_const_constructors, deprecated_member_use, sized_box_for_whitespace, camel_case_types, body_might_complete_normally_nullable, no_leading_underscores_for_local_identifiers, unused_local_variable
+// ignore_for_file: non_constant_identifier_names, prefer_const_constructors, deprecated_member_use, sized_box_for_whitespace, camel_case_types, body_might_complete_normally_nullable, no_leading_underscores_for_local_identifiers, unused_local_variable, file_names, no_logic_in_create_state, library_private_types_in_public_api, avoid_print, use_key_in_widget_constructors, prefer_final_fields
 
 import 'dart:convert';
 
@@ -159,7 +159,7 @@ class _AdduserrState extends State<Adduser>
           // ),
 
           BottomAppBar(
-            color: Colors.transparent,
+        color: Colors.transparent,
         elevation: 0,
         child: Padding(
           padding: const EdgeInsets.all(8.0),
@@ -317,6 +317,7 @@ class _AdduserrState extends State<Adduser>
         ),
       ),
       appBar: AppBar(
+        elevation: 0,
         iconTheme: IconThemeData(color: Colors.black),
         backgroundColor: Colors.white,
         title: Text(

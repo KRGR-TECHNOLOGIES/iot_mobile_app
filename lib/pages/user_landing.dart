@@ -1,8 +1,10 @@
+// ignore_for_file: library_private_types_in_public_api
+
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
-import 'package:iot_mobile_app/pages/Home_page.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class UserLanding extends StatefulWidget {
@@ -28,7 +30,9 @@ class _UserLandingState extends State<UserLanding> {
     });
 
     if (response.statusCode == 200) {
-      print('object');
+      if (kDebugMode) {
+        print('object');
+      }
       List<dynamic> data = json.decode(response.body);
       List<Map<String, dynamic>> devices =
           List<Map<String, dynamic>>.from(data);
@@ -43,7 +47,7 @@ class _UserLandingState extends State<UserLanding> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Device List")),
+      appBar: AppBar(title: const Text("Device List")),
       body: Center(
         child: ListView.builder(
           itemCount: devices.length,

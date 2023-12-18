@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, avoid_types_as_parameter_names, non_constant_identifier_names, sort_child_properties_last
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, avoid_types_as_parameter_names, non_constant_identifier_names, sort_child_properties_last, avoid_print, file_names
 
 import 'package:flutter/material.dart';
 import 'package:flutter_advanced_drawer/flutter_advanced_drawer.dart';
@@ -21,7 +21,7 @@ import 'lang_page.dart';
 class Homepage extends StatefulWidget {
   final String deviceId;
 
-  Homepage(this.deviceId, {super.key});
+  const Homepage(this.deviceId, {super.key});
 
   @override
   State<Homepage> createState() => _HomepageState();
@@ -111,7 +111,7 @@ class _HomepageState extends State<Homepage> {
         animateChildDecoration: true,
         disabledGestures: false,
         childDecoration: const BoxDecoration(
-          borderRadius: const BorderRadius.all(Radius.circular(20)),
+          borderRadius: BorderRadius.all(Radius.circular(20)),
         ),
         child: Scaffold(
             backgroundColor: const Color(0xffcbcbcb),

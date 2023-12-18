@@ -1,27 +1,22 @@
-// ignore_for_file: prefer_const_constructors, use_build_context_synchronously
+// ignore_for_file: prefer_const_constructors, use_build_context_synchronously, deprecated_member_use, avoid_print, unused_local_variable
 
 import 'dart:convert';
 import 'package:animated_card/animated_card.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:flutter_styled_toast/flutter_styled_toast.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-// import 'package:iot_mobile_app/pages/Home_page.dart';
 import 'package:http/http.dart' as http;
-import 'package:iot_mobile_app/animited_button.dart';
-import 'package:iot_mobile_app/pages/admin_landing_pages/landing.dart';
-import 'package:iot_mobile_app/pages/landing_page.dart';
-// import 'package:iot_mobile_app/pages/landing_page.dart';
+
 import 'package:iot_mobile_app/pages/lang_page.dart';
-import 'package:iot_mobile_app/providers/firebase_message.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'forgotpassword.dart';
 import 'package:jwt_decoder/jwt_decoder.dart';
 
 class SingIN extends StatefulWidget {
+  const SingIN({super.key});
+
   @override
   State<SingIN> createState() => _SingINState();
 }
@@ -32,7 +27,6 @@ class _SingINState extends State<SingIN> {
 
   final _passwordController = TextEditingController();
   bool _obscureText = true; // Initially obscure text
-  String _finalText = "logged In ".tr;
   @override
   void initState() {
     super.initState();
@@ -66,7 +60,6 @@ class _SingINState extends State<SingIN> {
       if (response.statusCode == 200) {
         var data = jsonDecode(response.body.toString());
         print(data);
-        _finalText = "Logged In";
         print('account login sucessfully');
         SharedPreferences prefs = await SharedPreferences.getInstance();
         prefs.setString('username', user);
@@ -123,7 +116,6 @@ class _SingINState extends State<SingIN> {
     }
     setState(() {
       // Update the finalText property of the AnimatedButton
-      _finalText = finalText;
     });
   }
 
@@ -224,7 +216,7 @@ class _SingINState extends State<SingIN> {
                                 ),
                                 validator: (value) {
                                   if (value!.isEmpty) {
-                                    return 'mobile/email'.tr + ' is Required';
+                                    return '${'mobile/email'.tr} is Required';
                                   }
                                   return null;
                                 },
@@ -268,7 +260,7 @@ class _SingINState extends State<SingIN> {
                                 ),
                                 validator: (value) {
                                   if (value!.isEmpty) {
-                                    return 'pin'.tr + ' is required';
+                                    return '${'pin'.tr} is required';
                                   }
                                   return null;
                                 },
@@ -286,13 +278,13 @@ class _SingINState extends State<SingIN> {
                                     );
                                   }
                                 },
-                                child: Text(
-                                  "sign_in".tr,
-                                  style: TextStyle(fontSize: 20),
-                                ),
                                 style: ElevatedButton.styleFrom(
                                   primary: Color.fromARGB(255, 26, 93, 28),
                                   fixedSize: Size(650, 60),
+                                ),
+                                child: Text(
+                                  "sign_in".tr,
+                                  style: TextStyle(fontSize: 20),
                                 ),
                               ),
                               // Center(

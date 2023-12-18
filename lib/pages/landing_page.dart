@@ -1,4 +1,4 @@
-// ignore_for_file: unnecessary_type_check, prefer_const_constructors
+// ignore_for_file: unnecessary_type_check, prefer_const_constructors, library_private_types_in_public_api, override_on_non_overriding_member, avoid_print, prefer_final_fields
 
 import 'dart:convert';
 import 'package:flutter/foundation.dart';
@@ -162,7 +162,6 @@ class _LandingpageState extends State<Landingpage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-
         iconTheme: IconThemeData(color: Colors.black),
         automaticallyImplyLeading: false,
         backgroundColor: Colors.white,
@@ -297,7 +296,7 @@ class DeviceListState extends State<DeviceList> {
   Widget build(BuildContext context) {
     final switchonState = context.read<SwitchonState>();
 
-    return Container(
+    return SizedBox(
         height: MediaQuery.of(context).size.height,
         child: ListView.builder(
             itemCount: widget.deviceList.length,

@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, library_private_types_in_public_api, avoid_print, non_constant_identifier_names, use_key_in_widget_constructors, prefer_final_fields
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -11,7 +11,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 class UserDetailsScreen extends StatefulWidget {
   final String mobileId;
 
-  UserDetailsScreen(
+  const UserDetailsScreen(
       {required this.mobileId, Key? key, required String deviceIdId})
       : super(key: key);
   @override

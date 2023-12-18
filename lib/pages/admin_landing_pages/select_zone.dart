@@ -1,4 +1,4 @@
-// ignore_for_file: unnecessary_type_check
+// ignore_for_file: unnecessary_type_check, avoid_print, prefer_const_constructors_in_immutables, use_key_in_widget_constructors, library_private_types_in_public_api
 
 import 'dart:convert';
 import 'package:http/http.dart' as http;
@@ -62,20 +62,20 @@ class _SelectZoneState extends State<SelectZone> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Select Zone'),
+        title: const Text('Select Zone'),
       ),
       body: FutureBuilder<List<String>>(
         future: zoneNames,
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return Center(child: CircularProgressIndicator());
+            return const Center(child: CircularProgressIndicator());
           } else if (snapshot.hasError) {
             return Center(child: Text('Error: ${snapshot.error}'));
           } else {
             final zoneList = snapshot.data;
 
             if (zoneList == null || zoneList.isEmpty) {
-              return Center(child: Text('No zone names found.'));
+              return const Center(child: Text('No zone names found.'));
             }
 
             return ListView.builder(

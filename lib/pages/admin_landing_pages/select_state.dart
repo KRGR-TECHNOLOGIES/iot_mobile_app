@@ -1,4 +1,4 @@
-// ignore_for_file: unnecessary_type_check
+// ignore_for_file: unnecessary_type_check, avoid_print, library_private_types_in_public_api
 
 import 'dart:convert';
 import 'package:http/http.dart' as http;
@@ -76,21 +76,21 @@ class _SelectStateState extends State<SelectState> {
       future: deviceIds,
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
-          return Center(child: CircularProgressIndicator());
+          return const Center(child: CircularProgressIndicator());
         } else if (snapshot.hasError) {
           return Center(child: Text('Error: ${snapshot.error}'));
         } else {
           final deviceIdsList = snapshot.data;
 
           if (deviceIdsList == null || deviceIdsList.isEmpty) {
-            return Center(child: Text('No device IDs found.'));
+            return const Center(child: Text('No device IDs found.'));
           }
 
           return Scaffold(
             appBar: AppBar(
-                iconTheme: IconThemeData(color: Colors.black),
+                iconTheme: const IconThemeData(color: Colors.black),
                 backgroundColor: Colors.white,
-                title: Text(
+                title: const Text(
                   'Select Device',
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
@@ -99,12 +99,12 @@ class _SelectStateState extends State<SelectState> {
                 ),
                 actions: [
                   Padding(
-                    padding: EdgeInsets.only(right: 30),
+                    padding: const EdgeInsets.only(right: 30),
                     child: GestureDetector(
                       onTap: () {
                         Navigator.of(context).push(
                           MaterialPageRoute(
-                            builder: (context) => Langscreen(),
+                            builder: (context) => const Langscreen(),
                           ),
                         );
                       },
@@ -136,19 +136,19 @@ class _SelectStateState extends State<SelectState> {
                             _selectStateAndNavigate(
                                 context, deviceIdsList[index]);
                           },
+                          minWidth: 400, // Set the minimum width
+                          height: 60,
                           child: Row(
                             children: [
                               Text(
                                 deviceIdsList[index],
-                                style: TextStyle(
+                                style: const TextStyle(
                                   color: Colors.black,
                                   fontSize: 15,
                                 ),
                               ),
                             ],
                           ),
-                          minWidth: 400, // Set the minimum width
-                          height: 60,
                         ),
                         Container(
                           height: 2,

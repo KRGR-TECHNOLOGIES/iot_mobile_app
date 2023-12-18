@@ -1,8 +1,7 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, unnecessary_brace_in_string_interps, unnecessary_type_check, dead_code
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, unnecessary_brace_in_string_interps, unnecessary_type_check, dead_code, avoid_print
 
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'package:flutter/widgets.dart';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -136,6 +135,7 @@ class _DashState extends State<Dash> {
       throw Exception('Failed to load device status');
     }
   }
+
   bool isRefreshing = false;
   void handleRefresh() {
     setState(() {
@@ -148,6 +148,7 @@ class _DashState extends State<Dash> {
       });
     });
   }
+
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<List<String>>(
@@ -167,7 +168,7 @@ class _DashState extends State<Dash> {
             final switchState = Provider.of<SwitchState>(context);
             final Size screenSize = MediaQuery.of(context).size;
 
-            return Container(
+            return SizedBox(
               width: screenSize.width * 100,
               child: SingleChildScrollView(
                 scrollDirection: Axis.vertical,
@@ -186,7 +187,7 @@ class _DashState extends State<Dash> {
                                 fontWeight: FontWeight.bold),
                           ),
                           Text(
-                            '${widget.deviceId}',
+                            widget.deviceId,
                             style: TextStyle(
                                 fontSize:
                                     MediaQuery.of(context).size.width * 0.06,
@@ -197,16 +198,15 @@ class _DashState extends State<Dash> {
                           ),
                           isRefreshing
                               ? CircularProgressIndicator()
-                              :
-                          SizedBox(
-                            width: 30,
-                            child: GestureDetector(
-                                onTap: handleRefresh,
-                                    // Call handleRefresh when the icon is tapped
-                                child: Image.asset(
-                                  "assets/refresh.png",
-                                )),
-                          ),
+                              : SizedBox(
+                                  width: 30,
+                                  child: GestureDetector(
+                                      onTap: handleRefresh,
+                                      // Call handleRefresh when the icon is tapped
+                                      child: Image.asset(
+                                        "assets/refresh.png",
+                                      )),
+                                ),
                         ],
                       ),
                     ),

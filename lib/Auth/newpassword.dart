@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use, avoid_print, no_logic_in_create_state, library_private_types_in_public_api
+
 import 'dart:convert';
 
 import 'package:animated_card/animated_card.dart';
@@ -7,14 +9,13 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_styled_toast/flutter_styled_toast.dart';
 import 'package:get/get.dart';
 import 'package:iot_mobile_app/Auth/singin.dart';
-import 'package:iot_mobile_app/animited_button.dart';
 import 'package:iot_mobile_app/pages/lang_page.dart';
 import 'package:http/http.dart' as http;
 
 class NewPasswordPage extends StatefulWidget {
   final String id;
 
-  NewPasswordPage({required this.id});
+  const NewPasswordPage({super.key, required this.id});
 
   @override
   _NewPasswordPageState createState() => _NewPasswordPageState(id: id);
@@ -41,12 +42,12 @@ class _NewPasswordPageState extends State<NewPasswordPage> {
         context: context,
         animation: StyledToastAnimation.slideFromRight,
         reverseAnimation: StyledToastAnimation.slideToRight,
-        duration: Duration(seconds: 4),
-        animDuration: Duration(seconds: 1),
+        duration: const Duration(seconds: 4),
+        animDuration: const Duration(seconds: 1),
         curve: Curves.elasticOut,
         reverseCurve: Curves.linear,
         // backgroundColor: Colors.red,
-        textStyle: TextStyle(color: Colors.white, fontSize: 16),
+        textStyle: const TextStyle(color: Colors.white, fontSize: 16),
       );
       return;
     }
@@ -67,13 +68,13 @@ class _NewPasswordPageState extends State<NewPasswordPage> {
           context: context,
           builder: (_) => AlertDialog(
             title: Text('success'.tr),
-            content: Text('New Pin Updated'),
+            content: const Text('New Pin Updated'),
             actions: [
               TextButton(
                 onPressed: () {
                   Navigator.of(context).push(
                     MaterialPageRoute(
-                      builder: (context) => SingIN(),
+                      builder: (context) => const SingIN(),
                     ),
                   ); // Add your button's functionality here
                 },
@@ -106,12 +107,12 @@ class _NewPasswordPageState extends State<NewPasswordPage> {
           context: context,
           animation: StyledToastAnimation.slideFromRight,
           reverseAnimation: StyledToastAnimation.slideToRight,
-          duration: Duration(seconds: 4),
-          animDuration: Duration(seconds: 1),
+          duration: const Duration(seconds: 4),
+          animDuration: const Duration(seconds: 1),
           curve: Curves.elasticOut,
           reverseCurve: Curves.linear,
           // backgroundColor: Colors.red,
-          textStyle: TextStyle(color: Colors.white, fontSize: 16),
+          textStyle: const TextStyle(color: Colors.white, fontSize: 16),
         );
       }
     } catch (e) {
@@ -128,7 +129,7 @@ class _NewPasswordPageState extends State<NewPasswordPage> {
         iconTheme: const IconThemeData(color: Colors.black),
         title: Text(
           'new_pass'.tr,
-          style: TextStyle(
+          style: const TextStyle(
               fontWeight: FontWeight.bold, fontSize: 25, color: Colors.black),
         ),
         actions: [
@@ -144,7 +145,7 @@ class _NewPasswordPageState extends State<NewPasswordPage> {
               },
               child: CircleAvatar(
                 radius: 18,
-                backgroundColor: Color.fromARGB(255, 165, 227, 106),
+                backgroundColor: const Color.fromARGB(255, 165, 227, 106),
 
                 // backgroundImage: AssetImage('assets/language-icon.png'),
                 child: SvgPicture.asset(
@@ -175,7 +176,7 @@ class _NewPasswordPageState extends State<NewPasswordPage> {
                     AnimatedCard(
                       direction: AnimatedCardDirection
                           .bottom, // Choose your animation direction
-                      initDelay: Duration(
+                      initDelay: const Duration(
                           milliseconds: 300), // Delay for the initial animation
                       // curve: Curves.easeInBack,
                       child: Card(
@@ -246,7 +247,7 @@ class _NewPasswordPageState extends State<NewPasswordPage> {
                                   // labelText: "confirm_pass".tr,
                                 ),
                               ),
-                              SizedBox(height: 20.0),
+                              const SizedBox(height: 20.0),
                               ElevatedButton(
                                 onPressed: () {
                                   updateNewPin(
@@ -256,13 +257,14 @@ class _NewPasswordPageState extends State<NewPasswordPage> {
                                           .text
                                           .toString()));
                                 },
+                                style: ElevatedButton.styleFrom(
+                                  primary:
+                                      const Color.fromARGB(255, 26, 93, 28),
+                                  fixedSize: const Size(650, 60),
+                                ),
                                 child: Text(
                                   "update_pass".tr,
-                                  style: TextStyle(fontSize: 20),
-                                ),
-                                style: ElevatedButton.styleFrom(
-                                  primary: Color.fromARGB(255, 26, 93, 28),
-                                  fixedSize: Size(650, 60),
+                                  style: const TextStyle(fontSize: 20),
                                 ),
                               ),
                               // Center(
@@ -311,7 +313,7 @@ class _NewPasswordPageState extends State<NewPasswordPage> {
                                     onPressed: () {
                                       Navigator.of(context).push(
                                         MaterialPageRoute(
-                                          builder: (context) => SingIN(),
+                                          builder: (context) => const SingIN(),
                                         ),
                                       );
                                     },

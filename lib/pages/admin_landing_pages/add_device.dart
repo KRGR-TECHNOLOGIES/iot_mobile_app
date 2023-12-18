@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print, library_private_types_in_public_api
+
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -8,6 +10,8 @@ import 'package:iot_mobile_app/pages/lang_page.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class AddDevice extends StatefulWidget {
+  const AddDevice({super.key});
+
   @override
   _AddDeviceState createState() => _AddDeviceState();
 }
@@ -153,7 +157,8 @@ class _AddDeviceState extends State<AddDevice> {
         ),
       ),
       appBar: AppBar(
-        iconTheme: IconThemeData(color: Colors.black),
+        elevation: 0,
+        iconTheme: const IconThemeData(color: Colors.black),
         backgroundColor: Colors.white,
         title: Text(
           'add_device'.tr,
@@ -165,12 +170,12 @@ class _AddDeviceState extends State<AddDevice> {
         ),
         actions: [
           Padding(
-            padding: EdgeInsets.only(right: 30),
+            padding: const EdgeInsets.only(right: 30),
             child: GestureDetector(
               onTap: () {
                 Navigator.of(context).push(
                   MaterialPageRoute(
-                    builder: (context) => Langscreen(),
+                    builder: (context) => const Langscreen(),
                   ),
                 );
               },
@@ -191,11 +196,11 @@ class _AddDeviceState extends State<AddDevice> {
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.all(16.0),
+          padding: const EdgeInsets.all(16.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               Text('device_id'.tr,
                   style: TextStyle(
                     fontWeight: FontWeight.w500,
@@ -206,11 +211,11 @@ class _AddDeviceState extends State<AddDevice> {
                 controller: _deviceController,
                 decoration: InputDecoration(
                   contentPadding:
-                      EdgeInsets.symmetric(horizontal: 20, vertical: 0),
+                      const EdgeInsets.symmetric(horizontal: 20, vertical: 0),
                   hintText: 'enter_device_id'.tr,
                 ),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               Text('device_name'.tr,
                   style: TextStyle(
                     fontWeight: FontWeight.w500,
@@ -221,11 +226,11 @@ class _AddDeviceState extends State<AddDevice> {
                 controller: _devicenameController,
                 decoration: InputDecoration(
                   contentPadding:
-                      EdgeInsets.symmetric(horizontal: 20, vertical: 0),
+                      const EdgeInsets.symmetric(horizontal: 20, vertical: 0),
                   hintText: 'enter_device_name'.tr,
                 ),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               Text('pin'.tr,
                   style: TextStyle(
                     fontWeight: FontWeight.w500,
@@ -236,11 +241,11 @@ class _AddDeviceState extends State<AddDevice> {
                 controller: _pinController,
                 decoration: InputDecoration(
                   contentPadding:
-                      EdgeInsets.symmetric(horizontal: 20, vertical: 0),
+                      const EdgeInsets.symmetric(horizontal: 20, vertical: 0),
                   hintText: 'enter_device_pin'.tr,
                 ),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               Text('sim'.tr,
                   style: TextStyle(
                     fontWeight: FontWeight.w500,
@@ -251,11 +256,11 @@ class _AddDeviceState extends State<AddDevice> {
                 controller: _simController,
                 decoration: InputDecoration(
                   contentPadding:
-                      EdgeInsets.symmetric(horizontal: 20, vertical: 0),
+                      const EdgeInsets.symmetric(horizontal: 20, vertical: 0),
                   hintText: 'enter_device_sim'.tr,
                 ),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               Text('topic'.tr,
                   style: TextStyle(
                     fontWeight: FontWeight.w500,
@@ -266,11 +271,11 @@ class _AddDeviceState extends State<AddDevice> {
                 controller: _topiccontroller,
                 decoration: InputDecoration(
                   contentPadding:
-                      EdgeInsets.symmetric(horizontal: 20, vertical: 0),
+                      const EdgeInsets.symmetric(horizontal: 20, vertical: 0),
                   hintText: 'enter_topic'.tr,
                 ),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               Text('zone'.tr,
                   style: TextStyle(
                     fontWeight: FontWeight.w500,
@@ -281,11 +286,11 @@ class _AddDeviceState extends State<AddDevice> {
                 controller: _zonecontroller,
                 decoration: InputDecoration(
                   contentPadding:
-                      EdgeInsets.symmetric(horizontal: 20, vertical: 0),
+                      const EdgeInsets.symmetric(horizontal: 20, vertical: 0),
                   hintText: 'enter_zone'.tr,
                 ),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               Text('device_serial-no'.tr,
                   style: TextStyle(
                     fontWeight: FontWeight.w500,
@@ -296,11 +301,11 @@ class _AddDeviceState extends State<AddDevice> {
                 controller: _serialNocontroller,
                 decoration: InputDecoration(
                   contentPadding:
-                      EdgeInsets.symmetric(horizontal: 20, vertical: 0),
+                      const EdgeInsets.symmetric(horizontal: 20, vertical: 0),
                   hintText: 'enter_serial_no'.tr,
                 ),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               Text('mobile_number'.tr,
                   style: TextStyle(
                     fontWeight: FontWeight.w500,
@@ -311,11 +316,11 @@ class _AddDeviceState extends State<AddDevice> {
                 controller: _mobileNocontroller,
                 decoration: InputDecoration(
                   contentPadding:
-                      EdgeInsets.symmetric(horizontal: 20, vertical: 0),
+                      const EdgeInsets.symmetric(horizontal: 20, vertical: 0),
                   hintText: 'enter_mobile_number'.tr,
                 ),
               ),
-              SizedBox(height: 90),
+              const SizedBox(height: 90),
             ],
           ),
         ),

@@ -1,4 +1,4 @@
-// ignore_for_file: non_constant_identifier_names, avoid_types_as_parameter_names, avoid_print, prefer_const_constructors
+// ignore_for_file: non_constant_identifier_names, avoid_types_as_parameter_names, avoid_print, prefer_const_constructors, unnecessary_null_comparison, use_build_context_synchronously
 
 import 'dart:io';
 import 'package:firebase_messaging/firebase_messaging.dart';

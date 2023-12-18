@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, no_logic_in_create_state
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -6,7 +6,7 @@ import 'package:get/get.dart';
 class Load extends StatefulWidget {
   final Map<String, dynamic>? loadLogs;
 
-  Load(this.loadLogs);
+  const Load(this.loadLogs, {super.key});
   @override
   State<Load> createState() => _LoadState(loadLogs);
 }
@@ -49,7 +49,6 @@ class _LoadState extends State<Load> {
             children: [
               SizedBox(
                 width: MediaQuery.of(context).size.width * 0.42,
-
               ),
               Text(
                 'refresh_logs'.tr,
@@ -60,7 +59,7 @@ class _LoadState extends State<Load> {
               SizedBox(width: 5),
               isRefreshing
                   ? CircularProgressIndicator()
-                  : Container(
+                  : SizedBox(
                       height: 25,
                       width: 25,
                       child: GestureDetector(

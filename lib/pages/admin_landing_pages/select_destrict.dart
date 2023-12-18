@@ -1,4 +1,4 @@
-// ignore_for_file: unnecessary_type_check
+// ignore_for_file: unnecessary_type_check, prefer_const_constructors_in_immutables, use_key_in_widget_constructors, library_private_types_in_public_api, avoid_print
 
 import 'dart:convert';
 import 'package:http/http.dart' as http;
@@ -60,20 +60,20 @@ class _SelectDistrictState extends State<SelectDistrict> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Select District'),
+        title: const Text('Select District'),
       ),
       body: FutureBuilder<List<String>>(
         future: districtNames,
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return Center(child: CircularProgressIndicator());
+            return const Center(child: CircularProgressIndicator());
           } else if (snapshot.hasError) {
             return Center(child: Text('Error: ${snapshot.error}'));
           } else {
             final districtList = snapshot.data;
 
             if (districtList == null || districtList.isEmpty) {
-              return Center(child: Text('No district names found.'));
+              return const Center(child: Text('No district names found.'));
             }
 
             return ListView.builder(
