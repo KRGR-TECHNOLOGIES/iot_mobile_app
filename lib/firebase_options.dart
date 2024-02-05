@@ -17,24 +17,15 @@ import 'package:flutter/foundation.dart'
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
-      throw UnsupportedError(
-        'DefaultFirebaseOptions have not been configured for web - '
-        'you can reconfigure this by running the FlutterFire CLI again.',
-      );
+      return web;
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
         return android;
       case TargetPlatform.iOS:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for ios - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return ios;
       case TargetPlatform.macOS:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for macos - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return macos;
       case TargetPlatform.windows:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for windows - '
@@ -52,11 +43,39 @@ class DefaultFirebaseOptions {
     }
   }
 
+  static const FirebaseOptions web = FirebaseOptions(
+    apiKey: 'AIzaSyAgmlNW4LMdp-CzoWf87Wz67CBRiYEj0sM',
+    appId: '1:196358992254:web:85c9f97534f4418bf8832f',
+    messagingSenderId: '196358992254',
+    projectId: 'iot-ktech-console',
+    authDomain: 'iot-ktech-console.firebaseapp.com',
+    storageBucket: 'iot-ktech-console.appspot.com',
+    measurementId: 'G-HWXQLMJYDX',
+  );
+
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyC3-tkzqCizCE489ktwF25lJZ2DGabmXwM',
     appId: '1:196358992254:android:5e22639ec3b99f06f8832f',
     messagingSenderId: '196358992254',
     projectId: 'iot-ktech-console',
     storageBucket: 'iot-ktech-console.appspot.com',
+  );
+
+  static const FirebaseOptions ios = FirebaseOptions(
+    apiKey: 'AIzaSyDb5887SvmqmHy00QR6iFe9oMold7lBM4Q',
+    appId: '1:196358992254:ios:fef1615867dc1b4af8832f',
+    messagingSenderId: '196358992254',
+    projectId: 'iot-ktech-console',
+    storageBucket: 'iot-ktech-console.appspot.com',
+    iosBundleId: 'com.example.iotMobileApp',
+  );
+
+  static const FirebaseOptions macos = FirebaseOptions(
+    apiKey: 'AIzaSyDb5887SvmqmHy00QR6iFe9oMold7lBM4Q',
+    appId: '1:196358992254:ios:a9dab47b6f96bb96f8832f',
+    messagingSenderId: '196358992254',
+    projectId: 'iot-ktech-console',
+    storageBucket: 'iot-ktech-console.appspot.com',
+    iosBundleId: 'com.example.iotMobileApp.RunnerTests',
   );
 }
