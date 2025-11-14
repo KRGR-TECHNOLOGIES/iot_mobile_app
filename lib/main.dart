@@ -85,7 +85,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         home: SplashScreen(),
         theme: ThemeData(primarySwatch: Colors.green, useMaterial3: true),
-        locale: LangController.locale, // Corrected access to LangController
+        locale: LangController.locale,
         translations: Messages(languages: languages),
         fallbackLocale: Locale(AppConstants.Languages[0].languageCode),
       );

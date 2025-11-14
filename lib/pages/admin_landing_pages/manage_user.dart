@@ -107,6 +107,7 @@ class _UsersState extends State<Users> {
     return Scaffold(
       backgroundColor: const Color(0xffcbcbcb),
       appBar: AppBar(
+        backgroundColor: Colors.white,
         elevation: 0,
         iconTheme: IconThemeData(color: Colors.black),
         title: Text(
@@ -129,7 +130,7 @@ class _UsersState extends State<Users> {
               },
               child: CircleAvatar(
                 radius: 18,
-                backgroundColor: Colors.green,
+                backgroundColor: Colors.white,
                 child: SvgPicture.asset('assets/language-icon.svg'),
               ),
             ),
@@ -179,7 +180,7 @@ class _UsersState extends State<Users> {
                   ),
                   SizedBox(
                     // height: 560,
-                    height: MediaQuery.of(context).size.width * 1.53,
+                    height: MediaQuery.of(context).size.width * 1.5,
 
                     child: ListView(
                       children: filteredDeviceList.map((device) {
@@ -187,7 +188,7 @@ class _UsersState extends State<Users> {
                           padding:
                               const EdgeInsets.only(top: 10, left: 5, right: 5),
                           child: Container(
-                            height: MediaQuery.of(context).size.height * 0.15,
+                            height: MediaQuery.of(context).size.height * 0.16,
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(13),
                               color: Colors.white,
@@ -357,48 +358,46 @@ class _UsersState extends State<Users> {
           }
         },
       ),
-      bottomNavigationBar: SafeArea(
-        child: Container(
-          height: MediaQuery.of(context).size.height * 0.085,
-          // padding: const EdgeInsets.all(12),
-          margin: EdgeInsets.all(10),
-          decoration: const BoxDecoration(
-            borderRadius: BorderRadius.all(Radius.circular(24)),
-            color: Colors.white,
-          ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              _buildBottomNavItem(Icons.home, 'Home', () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (context) => const Adminlandingpage(),
-                  ),
-                );
-              }),
-              _buildBottomNavItem(Icons.person_add, 'Add User', () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (context) => const Adduser(),
-                  ),
-                );
-              }),
-              _buildBottomNavItem(Icons.devices, 'Add Device', () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (context) => AddDevice(),
-                  ),
-                );
-              }),
-              _buildBottomNavItem(Icons.device_hub_outlined, 'Map Device', () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (context) => Mapdevice(),
-                  ),
-                );
-              }),
-            ],
-          ),
+      bottomNavigationBar: Container(
+        height: MediaQuery.of(context).size.height * 0.08,
+        // padding: const EdgeInsets.all(12),
+        margin: EdgeInsets.all(10),
+        decoration: const BoxDecoration(
+          borderRadius: BorderRadius.all(Radius.circular(24)),
+          color: Colors.white,
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            _buildBottomNavItem(Icons.home, 'Home', () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => const Adminlandingpage(),
+                ),
+              );
+            }),
+            _buildBottomNavItem(Icons.person_add, 'Add User', () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => const Adduser(),
+                ),
+              );
+            }),
+            _buildBottomNavItem(Icons.devices, 'Add Device', () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => AddDevice(),
+                ),
+              );
+            }),
+            _buildBottomNavItem(Icons.device_hub_outlined, 'Map Device', () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => Mapdevice(),
+                ),
+              );
+            }),
+          ],
         ),
       ),
     );

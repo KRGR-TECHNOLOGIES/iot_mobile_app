@@ -309,7 +309,7 @@ class _LimitsState extends State<Limits> {
             children: [
               Text(
                 'device'.tr,
-                style: Theme.of(context).textTheme.headline6,
+                style: Theme.of(context).textTheme.titleLarge,
               ),
               TextField(
                 onTap: () {
@@ -331,7 +331,7 @@ class _LimitsState extends State<Limits> {
               ),
               Text(
                 'minimum_voltage'.tr,
-                style: Theme.of(context).textTheme.headline6,
+                style: Theme.of(context).textTheme.titleLarge,
               ),
               TextField(
                 controller: _minimumVoltageController,
@@ -346,7 +346,7 @@ class _LimitsState extends State<Limits> {
               ),
               Text(
                 'maximum_voltage'.tr,
-                style: Theme.of(context).textTheme.headline6,
+                style: Theme.of(context).textTheme.titleLarge,
               ),
               TextField(
                 controller: _maximumVoltageController,
@@ -361,7 +361,7 @@ class _LimitsState extends State<Limits> {
               ),
               Text(
                 'minimum_current'.tr,
-                style: Theme.of(context).textTheme.headline6,
+                style: Theme.of(context).textTheme.titleLarge,
               ),
               TextField(
                 controller: _minimumCurrentController,
@@ -376,7 +376,7 @@ class _LimitsState extends State<Limits> {
               ),
               Text(
                 'maximum_current'.tr,
-                style: Theme.of(context).textTheme.headline6,
+                style: Theme.of(context).textTheme.titleLarge,
               ),
               TextField(
                 controller: _maximumCurrentController,

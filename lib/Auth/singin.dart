@@ -7,8 +7,8 @@ import 'package:flutter_styled_toast/flutter_styled_toast.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+import 'package:glassmorphism_widgets/glassmorphism_widgets.dart';
 import 'package:http/http.dart' as http;
-
 import 'package:iot_mobile_app/pages/lang_page.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'forgotpassword.dart';
@@ -121,245 +121,321 @@ class _SingINState extends State<SingIN> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 165, 227, 106),
-        iconTheme: IconThemeData(color: Colors.black),
-        automaticallyImplyLeading: false,
-        title: Text(
-          'sign_in'.tr,
-          style: TextStyle(
-              fontWeight: FontWeight.bold, fontSize: 25, color: Colors.black),
-        ),
-        actions: [
-          Padding(
-            padding: EdgeInsets.only(right: 30),
-            child: GestureDetector(
-              onTap: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (context) => Langscreen(),
-                  ),
-                );
-              },
-              child: CircleAvatar(
-                radius: 18,
-                backgroundColor: Color.fromARGB(255, 165, 227, 106),
+    Size size = MediaQuery.of(context).size;
 
-                // backgroundImage: AssetImage('assets/language-icon.png'),
-                child: SvgPicture.asset(
-                  'assets/language-icon.svg',
-                  // width: 100.0, // Adjust the width as needed
-                  // height: 100.0, // Adjust the height as needed
-                ),
-              ),
-            ),
-          ),
-        ],
-      ),
+    return Scaffold(
+      // appBar: AppBar(
+      //   backgroundColor: Color.fromARGB(255, 165, 227, 106),
+      //   iconTheme: IconThemeData(color: Colors.black),
+      //   automaticallyImplyLeading: false,
+      //   title: Text(
+      //     'sign_in'.tr,
+      //     style: TextStyle(
+      //         fontWeight: FontWeight.bold, fontSize: 25, color: Colors.black),
+      //   ),
+      //   actions: [
+      //     Padding(
+      //       padding: EdgeInsets.only(right: 30),
+      //       child: GestureDetector(
+      //         onTap: () {
+      //           Navigator.of(context).push(
+      //             MaterialPageRoute(
+      //               builder: (context) => Langscreen(),
+      //             ),
+      //           );
+      //         },
+      //         child: CircleAvatar(
+      //           radius: 18,
+      //           backgroundColor: Color.fromARGB(255, 165, 227, 106),
+      //           // backgroundImage: AssetImage('assets/language-icon.png'),
+      //           child: SvgPicture.asset(
+      //             'assets/language-icon.svg',
+      //             // width: 100.0, // Adjust the width as needed
+      //             // height: 100.0, // Adjust the height as needed
+      //           ),
+      //         ),
+      //       ),
+      //     ),
+      //   ],
+      // ),
       body: Stack(
         fit: StackFit.expand,
         children: [
           Image.asset(
-            "assets/loginbg.jpg",
+            "assets/bg.png",
             fit: BoxFit.cover,
           ),
-          Center(
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: SingleChildScrollView(
-                child: Form(
+          SingleChildScrollView(
+            child: Column(
+              children: [
+                SizedBox(
+                  height: size.height * 0.1,
+                ),
+                SvgPicture.asset(
+                  "assets/logo.svg",
+                ),
+                SizedBox(
+                  height: size.height * 0.01,
+                ),
+                Text(
+                  'THEJA TECHNOLOGIES',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 10,
+                    fontFamily: 'Inter',
+                    fontWeight: FontWeight.w800,
+                    height: 0,
+                    letterSpacing: 0.18,
+                  ),
+                ),
+                SizedBox(
+                  height: size.height * 0.04,
+                ),
+                Form(
                   key: formkey,
                   child: Center(
                     child: AnimatedCard(
-                      direction: AnimatedCardDirection
-                          .left, // Choose your animation direction
-                      initDelay: Duration(
-                          milliseconds: 300), // Delay for the initial animation
-                      // curve: Curves.easeInBack,
-                      child: Card(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(15.0),
-                        ),
-                        color: const Color.fromARGB(255, 255, 255, 255),
-                        child: Padding(
-                          padding: const EdgeInsets.all(16.0),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
-                              Text(
-                                'log_in_to_console'.tr,
-                                style: TextStyle(
-                                    fontSize: 20, fontWeight: FontWeight.bold),
-                              ),
-                              SizedBox(
-                                height: 30,
-                              ),
-                              Text(
-                                "mobile/email".tr,
-                                style: TextStyle(
-                                  fontSize: 20,
+                      direction: AnimatedCardDirection.left,
+                      initDelay: Duration(milliseconds: 300),
+                      curve: Curves.decelerate,
+                      child: Padding(
+                        padding: const EdgeInsets.all(20),
+                        child: GlassContainer(
+                          height: MediaQuery.of(context).size.height * 0.51,
+                          // border: 0,
+                          // constraints: BoxConstraints.expand(),
+                          // blur: 30,
+                          child: Padding(
+                            padding: const EdgeInsets.all(16.0),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: <Widget>[
+                                Text(
+                                  'log_in_to_console'.tr,
+                                  style: TextStyle(
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white,
+                                  ),
                                 ),
-                              ),
-                              SizedBox(
-                                height: 10,
-                              ),
-                              TextFormField(
-                                controller: _usernameController,
-                                keyboardType: TextInputType.text,
-                                decoration: InputDecoration(
-                                  contentPadding: EdgeInsets.symmetric(
-                                      horizontal: 20, vertical: 0),
-                                  // hintText: "mobile/email".tr,
-                                  hintText: "enter_mobile/email".tr,
+                                SizedBox(
+                                  height: 30,
                                 ),
-                                validator: (value) {
-                                  if (value!.isEmpty) {
-                                    return '${'mobile/email'.tr} is Required';
-                                  }
-                                  return null;
-                                },
-                              ),
-                              SizedBox(
-                                height: 30,
-                              ),
-                              Text(
-                                "pin".tr,
-                                style: TextStyle(
-                                  fontSize: 20,
-                                ),
-                              ),
-                              SizedBox(
-                                height: 10,
-                              ),
-                              TextFormField(
-                                controller: _passwordController,
-                                keyboardType: TextInputType.number,
-                                inputFormatters: [
-                                  LengthLimitingTextInputFormatter(
-                                      4), // Limit the input length to 4 digits
-                                ],
-                                obscureText: _obscureText,
-                                decoration: InputDecoration(
-                                  // contentPadding: EdgeInsets.only(left: 20),
-                                  // labelText: 'Password',
-                                  hintText: 'enter_pin'.tr,
-                                  suffixIcon: IconButton(
-                                    onPressed: () {
-                                      setState(() {
-                                        _obscureText = !_obscureText;
-                                      });
-                                    },
-                                    icon: Icon(
-                                      _obscureText
-                                          ? Icons.visibility
-                                          : Icons.visibility_off,
+                                // Text(
+                                //   "mobile/email".tr,
+                                //   style: TextStyle(
+                                //     fontSize: 20,
+                                //     color: Colors.white,
+                                //   ),
+                                // ),
+                                // SizedBox(
+                                //   height: 10,
+                                // ),
+                                TextFormField(
+                                  controller: _usernameController,
+                                  keyboardType: TextInputType.text,
+                                  cursorColor: Colors.white,
+                                  decoration: InputDecoration(
+                                    focusedBorder: UnderlineInputBorder(
+                                      borderRadius: BorderRadius.zero,
+                                      borderSide: BorderSide(
+                                        color: Colors.white,
+                                        width: 2.0,
+                                      ),
+                                    ),
+                                    enabledBorder: UnderlineInputBorder(
+                                      borderRadius: BorderRadius.circular(0),
+                                      borderSide: BorderSide(
+                                        color: Colors.white,
+                                        width: 2.0,
+                                      ),
+                                    ),
+                                    hintText: "enter_mobile/email".tr,
+                                    hintStyle: TextStyle(
+                                      color: Colors.white,
                                     ),
                                   ),
-                                ),
-                                validator: (value) {
-                                  if (value!.isEmpty) {
-                                    return '${'pin'.tr} is required';
-                                  }
-                                  return null;
-                                },
-                              ),
-
-                              SizedBox(
-                                height: 20,
-                              ),
-                              ElevatedButton(
-                                onPressed: () {
-                                  if (formkey.currentState!.validate()) {
-                                    login(
-                                      _usernameController.text.toString(),
-                                      _passwordController.text.toString(),
-                                    );
-                                  }
-                                },
-                                style: ElevatedButton.styleFrom(
-                                  primary: Color.fromARGB(255, 26, 93, 28),
-                                  fixedSize: Size(650, 60),
-                                ),
-                                child: Text(
-                                  "sign_in".tr,
-                                  style: TextStyle(fontSize: 20),
-                                ),
-                              ),
-                              // Center(
-                              //   child: AnimatedButton(
-                              //       onTap: () {
-                              //         if (formkey.currentState!.validate()) {
-                              //           login(
-                              //             _usernameController.text.toString(),
-                              //             _passwordController.text.toString(),
-                              //           );
-                              //         }
-                              //       },
-                              //       animationDuration:
-                              //           const Duration(milliseconds: 2000),
-                              //       initialText: "sign_in".tr,
-                              //       finalText: _finalText,
-                              //       iconData: Icons.check,
-                              //       iconSize: 32.0,
-                              //       buttonStyle: buttonstyle(
-                              //         primaryColor: Colors.green.shade600,
-                              //         secondaryColor: Colors.white,
-                              //         initialTextStyle: TextStyle(
-                              //           fontSize: 22.0,
-                              //           color: Colors.white,
-                              //         ),
-                              //         finalTextStyle: TextStyle(
-                              //           fontSize: 22.0,
-                              //           color: Colors.green.shade600,
-                              //         ),
-                              //         elevation: 20.0,
-                              //         borderRadius: 10.0,
-                              //       )),
-                              // ),
-                              SizedBox(
-                                height: 20,
-                              ),
-                              Row(
-                                children: [
-                                  Text(
-                                    'forgot_password'.tr,
-                                    style: TextStyle(color: Colors.grey),
+                                  style: TextStyle(
+                                    color: Colors.white,
                                   ),
-                                  SizedBox(
-                                    width: 5,
-                                  ),
-                                  TextButton(
-                                    onPressed: () {
-                                      Navigator.of(context).push(
-                                        MaterialPageRoute(
-                                          builder: (context) =>
-                                              ForgotPasswordPage(),
-                                        ),
-                                      ); // Add your button's functionality here
-                                    },
-                                    child: Text(
-                                      "click".tr,
-                                      style: TextStyle(
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.bold,
-                                        // Change the text color as needed
-                                        fontSize:
-                                            16, // Adjust the text size as needed
+                                  validator: (value) {
+                                    if (value!.isEmpty) {
+                                      return '${'mobile/email'.tr} is Required';
+                                    }
+                                    return null;
+                                  },
+                                ),
+                                SizedBox(
+                                  height: 30,
+                                ),
+                                // Text(
+                                //   "pin".tr,
+                                //   style: TextStyle(
+                                //     fontSize: 20,
+                                //     color: Colors.white,
+                                //   ),
+                                // ),
+                                // SizedBox(
+                                //   height: 10,
+                                // ),
+                                TextFormField(
+                                  controller: _passwordController,
+                                  keyboardType: TextInputType.number,
+                                  inputFormatters: [
+                                    LengthLimitingTextInputFormatter(4),
+                                  ],
+                                  obscureText: _obscureText,
+                                  cursorColor: Colors.white,
+                                  decoration: InputDecoration(
+                                    focusedBorder: UnderlineInputBorder(
+                                      borderRadius: BorderRadius.zero,
+                                      borderSide: BorderSide(
+                                        color: Colors.white,
+                                        width: 2.0,
+                                      ),
+                                    ),
+                                    enabledBorder: UnderlineInputBorder(
+                                      borderRadius: BorderRadius.circular(0),
+                                      borderSide: BorderSide(
+                                        color: Colors.white,
+                                        width: 2.0,
+                                      ),
+                                    ),
+                                    hintText: 'enter_pin'.tr,
+                                    hintStyle: TextStyle(
+                                      color: Colors.white,
+                                    ),
+                                    suffixIcon: IconButton(
+                                      onPressed: () {
+                                        setState(() {
+                                          _obscureText = !_obscureText;
+                                        });
+                                      },
+                                      icon: Icon(
+                                        color: Colors.white,
+                                        _obscureText
+                                            ? Icons.visibility
+                                            : Icons.visibility_off,
                                       ),
                                     ),
                                   ),
-                                ],
-                              ),
-                            ],
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                  ),
+                                  validator: (value) {
+                                    if (value!.isEmpty) {
+                                      return '${'pin'.tr} is required';
+                                    }
+                                    return null;
+                                  },
+                                ),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  children: [
+                                    TextButton(
+                                      onPressed: () {
+                                        Navigator.of(context).push(
+                                          MaterialPageRoute(
+                                            builder: (context) =>
+                                                ForgotPasswordPage(),
+                                          ),
+                                        );
+                                      },
+                                      child: Text(
+                                        "forgot_password".tr,
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 12,
+                                          fontFamily: 'Inter',
+                                          fontWeight: FontWeight.w500,
+                                          decoration: TextDecoration.underline,
+                                          decorationColor: Colors.white,
+                                          height: 0.10,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+
+                                SizedBox(
+                                  height: 20,
+                                ),
+                                GestureDetector(
+                                  onTap: () {
+                                    if (formkey.currentState!.validate()) {
+                                      login(
+                                        _usernameController.text.toString(),
+                                        _passwordController.text.toString(),
+                                      );
+                                    }
+                                  },
+                                  child: Container(
+                                    height: size.height * 0.06,
+                                    width: size.width * 0.5,
+                                    decoration: ShapeDecoration(
+                                      color: Colors.white,
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(32),
+                                      ),
+                                    ),
+                                    child: Center(
+                                      child: Text(
+                                        "sign_in".tr,
+                                        style: TextStyle(
+                                          color: Color(0xFF1E2138),
+                                          fontSize: 18,
+                                          fontFamily: 'Inter',
+                                          fontWeight: FontWeight.w600,
+                                          height: 0,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                // Center(
+                                //   child: AnimatedButton(
+                                //       onTap: () {
+                                //         if (formkey.currentState!.validate()) {
+                                //           login(
+                                //             _usernameController.text.toString(),
+                                //             _passwordController.text.toString(),
+                                //           );
+                                //         }
+                                //       },
+                                //       animationDuration:
+                                //           const Duration(milliseconds: 2000),
+                                //       initialText: "sign_in".tr,
+                                //       finalText: _finalText,
+                                //       iconData: Icons.check,
+                                //       iconSize: 32.0,
+                                //       buttonStyle: buttonstyle(
+                                //         primaryColor: Colors.green.shade600,
+                                //         secondaryColor: Colors.white,
+                                //         initialTextStyle: TextStyle(
+                                //           fontSize: 22.0,
+                                //           color: Colors.white,
+                                //         ),
+                                //         finalTextStyle: TextStyle(
+                                //           fontSize: 22.0,
+                                //           color: Colors.green.shade600,
+                                //         ),
+                                //         elevation: 20.0,
+                                //         borderRadius: 10.0,
+                                //       )),
+                                // ),
+                                SizedBox(
+                                  height: 20,
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                       ),
                     ),
                   ),
                 ),
-              ),
+              ],
             ),
           ),
         ],

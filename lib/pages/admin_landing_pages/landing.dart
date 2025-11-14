@@ -117,7 +117,7 @@ class _AdminlandingpageState extends State<Adminlandingpage> {
                     },
                     style: ElevatedButton.styleFrom(
                       elevation: 0,
-                      primary: Colors.grey,
+                      backgroundColor: Colors.grey,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(25),
                       ),
@@ -149,7 +149,7 @@ class _AdminlandingpageState extends State<Adminlandingpage> {
                     },
                     style: ElevatedButton.styleFrom(
                       elevation: 0,
-                      primary: Colors.grey,
+                      backgroundColor: Colors.grey,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(25),
                       ),
@@ -181,7 +181,7 @@ class _AdminlandingpageState extends State<Adminlandingpage> {
                     },
                     style: ElevatedButton.styleFrom(
                       elevation: 0,
-                      primary: Colors.grey,
+                      backgroundColor: Colors.grey,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(25),
                       ),
@@ -217,7 +217,7 @@ class _AdminlandingpageState extends State<Adminlandingpage> {
                     },
                     style: ElevatedButton.styleFrom(
                       elevation: 0,
-                      primary: Colors.grey,
+                      backgroundColor: Colors.grey,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(25),
                       ),

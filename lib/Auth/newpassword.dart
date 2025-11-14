@@ -258,7 +258,7 @@ class _NewPasswordPageState extends State<NewPasswordPage> {
                                           .toString()));
                                 },
                                 style: ElevatedButton.styleFrom(
-                                  primary:
+                                  backgroundColor:
                                       const Color.fromARGB(255, 26, 93, 28),
                                   fixedSize: const Size(650, 60),
                                 ),

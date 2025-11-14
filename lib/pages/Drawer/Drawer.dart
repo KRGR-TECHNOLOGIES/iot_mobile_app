@@ -170,7 +170,7 @@ class _MyDrawerState extends State<MyDrawer> {
                               ],
                             ),
                             style: ElevatedButton.styleFrom(
-                              primary: device["motorbox"]
+                              backgroundColor: device["motorbox"]
                                   ? Color.fromARGB(255, 222, 242, 201)
                                   : Color.fromARGB(223, 240, 200, 200),
                               fixedSize: Size(
